@@ -19,18 +19,19 @@ export const projects = [
     technologies: ["HTML", "CSS", "JavaScript"],
     demo: "https://vintage-tone-front-vue.vercel.app",
     code: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
-    category: "SEO",
+    category: "frontend",
     caseStudy: "/case-studies/homepage-redesign",
   },
   {
-    title: "React Tiendita",
+    title: "HTML Generator",
     description:
       "E-commerce full stack desarrollado con React, Node.js y MongoDB. Incluye autenticación, carrito de compras, búsqueda, categorías, reseñas, etc.",
     image: ReactEcommerce.src,
     technologies: ["React", "Tailwind", "Express", "MongoDB"],
     demo: "https://react-e-commerce-three-phi.vercel.app",
     code: "https://github.com/Lautaro-R-collins/React-E-commerce.git",
-    category: "fullstack",
+    category: "frontend",
+    caseStudy: "/case-studies/html-generator",
   },
   {
     title: "Astro Ecommerce",
@@ -41,6 +42,7 @@ export const projects = [
     demo: "https://e-commer-astro.vercel.app",
     code: "https://github.com/Lautaro-R-collins/E-commer-Astro.git",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "App organizacion",
@@ -51,6 +53,7 @@ export const projects = [
     demo: "https://front-react-todo.onrender.com",
     code: "https://github.com/Lautaro-R-collins/Front-react-todo",
     category: "fullstack",
+    caseStudy: "",
   },
   {
     title: "CV Builder",
@@ -61,16 +64,19 @@ export const projects = [
     demo: "https://cv-builder-pi-three.vercel.app",
     code: "https://github.com/Lautaro-R-collins/CV-Builder.git",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "E-commerce Urban Style",
     description:
       "E-commerce funcional de ropa y accesorios, con carrito de compras categorys y pasarela de pago desarrollado en React.",
+      caseStudy: "",
     image: urbanStyle.src,
     technologies: ["React", "Tailwind", "Firebase"],
     demo: "https://proyecto-final-rodriguez-sable.vercel.app/",
     code: "https://github.com/Lautaro-R-collins/ProyectoFinal-Rodriguez.git",
     category: "fullstack",
+    caseStudy: "",
   },
   {
     title: "Tienda Artesana",
@@ -82,6 +88,7 @@ export const projects = [
     demo: "https://c21-05-ft-node-react-mirror-frontend-64qbwssi2-muyvisual.vercel.app/",
     code: "https://github.com/No-Country-simulation/c21-05-ft-node-react",
     category: "fullstack",
+    caseStudy: "",
   },
   {
     title: "Traker Ingresos-Gastos",
@@ -93,6 +100,7 @@ export const projects = [
     demo: "https://traker-gastos-ingresos.onrender.com/",
     code: "https://github.com/Lautaro-R-collins/Traker-Gastos-Ingresos",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "App-clima",
@@ -104,6 +112,7 @@ export const projects = [
     demo: "https://app-clima-om19.onrender.com/",
     code: "https://github.com/Lautaro-R-collins/app-clima",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "Portfolio developers astro",
@@ -115,6 +124,7 @@ export const projects = [
     code:
       "https://github.com/Lautaro-R-collins/Portfolio-developers-astro.git",
     category: "frontend",
+    caseStudy: "",
   },
 
   {
@@ -126,6 +136,7 @@ export const projects = [
     demo: "https://legal-staff.vercel.app/",
     code: "https://github.com/Lautaro-R-collins/legal-staff",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "Medicare",
@@ -136,6 +147,7 @@ export const projects = [
     demo: "https://obra-social-landing.vercel.app/",
     code: "https://github.com/Lautaro-R-collins/obra-social-landing.git",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "AstroFit",
@@ -146,6 +158,7 @@ export const projects = [
     demo: "https://gym-page-sandy.vercel.app/",
     code: "https://github.com/Lautaro-R-collins/GymPage.git",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "API REST para Ecommerce",
@@ -156,6 +169,7 @@ export const projects = [
     demo: "https://react-e-commerce-three-phi.vercel.app",
     code: "https://github.com/Lautaro-R-collins/ApiRest-Ecommerce.git",
     category: "backend",
+    caseStudy: "",
   },
   {
     title: "API REST Vintage Tone App",
@@ -166,6 +180,7 @@ export const projects = [
     demo: "https://vintage-tone-front-vue.vercel.app",
     code: "https://github.com/Lautaro-R-collins/VintageTone-API-REST.git",
     category: "backend",
+    caseStudy: "",
   },
   {
     title: "API REST",
@@ -176,6 +191,7 @@ export const projects = [
     demo: "https://back-express-todo.onrender.com",
     code: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
     category: "backend",
+    caseStudy: "",
   },
   {
     title: "PlaniFy",
@@ -187,6 +203,7 @@ export const projects = [
     demo: "https://planify-1tu6.onrender.com/",
     code: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
     category: "frontend",
+    caseStudy: "",
   },
   {
     title: "Verbenas Paisajes",
@@ -197,6 +214,7 @@ export const projects = [
     demo: "https://challenge-neowyze.onrender.com/",
     code: "https://github.com/Lautaro-R-collins/challenge-Neowyze.git",
     category: "frontend",
+    caseStudy: "",
   },
 
   {
@@ -208,5 +226,6 @@ export const projects = [
     demo: "https://one00-proyects-web.onrender.com/",
     code: "https://github.com/Lautaro-R-collins/100-days-of-coding-in-JS",
     category: "frontend",
+    caseStudy: "",
   },
 ];
