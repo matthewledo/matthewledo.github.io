@@ -20,7 +20,7 @@ export const projects = [
     demo: "https://vintage-tone-front-vue.vercel.app",
     code: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
     category: "SEO",
-    caseStudy: "/pages/case-studies/homepage-redesign",
+    caseStudy: "/case-studies/homepage-redesign",
   },
   {
     title: "React Tiendita",
