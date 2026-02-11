@@ -19,8 +19,8 @@ export const projects = [
     technologies: ["HTML", "CSS", "JavaScript"],
     demo: "https://vintage-tone-front-vue.vercel.app",
     code: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
-    category: "frontend",
-    moreDetails: "/pages/case-studies/homepage-redesign",
+    category: "SEO",
+    caseStudy: "/pages/case-studies/homepage-redesign",
   },
   {
     title: "React Tiendita",
