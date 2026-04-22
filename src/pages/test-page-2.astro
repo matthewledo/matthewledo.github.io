@@ -1,0 +1,1584 @@
+<style>
+  .page_content .col-sm-12 {
+    padding: 0px;
+  }
+
+  #content .container {
+    max-width: 2000px;
+    width: 100% !important;
+  }
+
+  #content #breadcrumbContainer,
+  #content .container .title {
+    display: none;
+  }
+
+  #content .sfbox,
+  #content .rte {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* loader */
+
+  #custom-page-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -50px 0 0 -50px;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #ffef00;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  #holiday-hours-page-content {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+  #holiday-hours-page-content.visible {
+    opacity: 1 !important;
+    transition: opacity 0.1s ease-in-out;
+  }
+
+  .holiday-hours {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid #eee 1px;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .holiday-hours:hover {
+    font-weight: bold;
+  }
+
+  .holiday-hours .bold {
+    font-weight: bold;
+  }
+
+  .holiday-hours .store {
+    width: 36%;
+    padding: 3px;
+    text-align: left;
+  }
+
+  .holiday-hours .hours {
+    width: 64%;
+    padding: 3px;
+  }
+
+  #content #breadcrumbContainer,
+  #content .container .title {
+    display: none;
+  }
+
+  #content .container {
+    width: 100%;
+  }
+
+  #content .container .col-sm-12 {
+    padding: 0px;
+  }
+
+  #holiday-banner {
+    position: relative;
+
+    /* Family Day */
+    /* background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/purple-balloons-on-the-left-side_KRAKEN.jpg?v=1581542250); */
+
+    /* Easter */
+    /* background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/easter-eggs-and-ears-wood-kraken.progressive.jpg); */
+
+    /* Victoria Day */
+    /* background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/Holiday-Hours-Background.jpg?44774); */
+
+    /* background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/canada-day-holiday-hours.jpg); */
+
+    /* Thanksgiving */
+    /* background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/timothy-eberly-yuiJO6bvHi4-unsplash.jpg?v=1633528514); */
+
+    /* Christmas */
+    background-image: url(https://cdn.shopify.com/s/files/1/2660/5106/files/xmas-holidays.webp?v=1766433859);
+
+    /* height: 200px; */
+    height: 280px;
+    max-width: 2000px;
+    /* background-attachment: fixed;
+    background-position: center; */
+    background-position: 49% 36%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto 15px auto;
+  }
+
+  #holiday-banner #holiday-overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  #holiday-banner #holiday-text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0px 15px;
+  }
+
+  #holiday-banner #holiday-text h1 {
+    color: white;
+    /* font-size: calc(37px + (40 - 20) * ((100vw - 320px) / 680)); */
+    font-size: calc(32px + (37 - 20) * ((100vw - 320px) / 680));
+    text-shadow: 4px 4px 5px #000;
+    margin-bottom: 20px;
+  }
+
+  #holiday-banner #holiday-text h2 {
+    color: white;
+    /* font-size: 25px; */
+    text-shadow: 4px 4px 5px #000;
+    font-size: calc(20px + (25 - 20) * ((100vw - 320px) / 680));
+  }
+
+  .panel-heading {
+    cursor: pointer;
+  }
+
+  .panel-group .panel-title a {
+    color: #333;
+  }
+
+  .panel-body .holiday-hours:nth-child(even) {
+    background-color: #d4d4d42b;
+    border-bottom: solid #82828226 2px;
+    border-top: solid #82828226 2px;
+  }
+  .holiday-hours {
+    padding: 2px;
+  }
+  #holiday-day-nav {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+    scrollbar-width: thin; /* Firefox */
+  }
+  #holiday-day-nav button {
+    flex: 1 1 0;
+    min-width: 90px;
+    padding: 0.6rem 0.9rem;
+    text-align: center;
+    font-size: 18px;
+    /* flex-basis: 12%; */
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #f7f7f7;
+    border: 1px solid #d0d0d0;
+    color: #222;
+  }
+  #holiday-day-nav button.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+  #holiday-day-nav button:not(.active):hover {
+    background: #eee;
+  }
+  #holiday-day-nav button.today::after {
+    content: "•";
+    margin-left: 4px;
+  }
+  @media (min-width: 2000px) {
+    #holiday-banner #holiday-text h1 {
+      font-size: 65px;
+    }
+  }
+  @media (max-width: 1024px) {
+    #holiday-banner {
+      background-attachment: initial;
+      background-position: center;
+    }
+  }
+  @media (max-width: 420px) {
+    #holiday-banner #holiday-text h1 {
+      font-size: calc(37px + (37 - 20) * ((100vw - 320px) / 680));
+    }
+  }
+</style>
+<div id="content">
+  <div class="rte">
+    <div class="sfbox">
+      <div class="container">
+        <div class="col-sm-12">
+          <div
+            id="loader-wrap"
+            style="width: 100%; height: 100vh; position: relative">
+            <div id="custom-page-loader"></div>
+          </div>
+
+          <div id="holiday-hours-page-content">
+            <div id="holiday-banner">
+              <div id="holiday-overlay"></div>
+              <div id="holiday-text"></div>
+            </div>
+
+            <div id="holiday-day-nav" class="holiday-day-nav">
+              <button
+                data-day="2025-12-23"
+                class="multilingual"
+                data-french="23 déc.">
+                Dec 23
+              </button>
+              <button
+                data-day="2025-12-24"
+                class="multilingual"
+                data-french="24 déc.">
+                Dec 24
+              </button>
+              <button
+                data-day="2025-12-25"
+                class="multilingual"
+                data-french="25 déc.">
+                Dec 25
+              </button>
+              <button
+                data-day="2025-12-26"
+                class="multilingual"
+                data-french="26 déc.">
+                Dec 26
+              </button>
+              <button
+                data-day="2025-12-27"
+                class="multilingual"
+                data-french="27 déc.">
+                Dec 27
+              </button>
+              <button
+                data-day="2025-12-28"
+                class="multilingual"
+                data-french="28 déc.">
+                Dec 28
+              </button>
+              <button
+                data-day="2025-12-29"
+                class="multilingual"
+                data-french="29 déc.">
+                Dec 29
+              </button>
+              <button
+                data-day="2025-12-30"
+                class="multilingual"
+                data-french="30 déc.">
+                Dec 30
+              </button>
+              <button
+                data-day="2025-12-31"
+                class="multilingual"
+                data-french="31 déc.">
+                Dec 31
+              </button>
+              <button
+                data-day="2026-01-01"
+                class="multilingual"
+                data-french="1<sup>er</sup> janv.">
+                Jan 1
+              </button>
+            </div>
+
+            <div
+              class="container"
+              style="max-width: 1170px; padding: 0rem 0.5rem">
+              <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a
+                        class="multilingual"
+                        data-french="Est"
+                        data-toggle="collapse"
+                        data-parent="#accordion"
+                        href="#collapse1"
+                        >East</a
+                      >
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="holiday-hours top-row"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a
+                        class="collapsed multilingual"
+                        data-french="Ontario"
+                        data-toggle="collapse"
+                        data-parent="#accordion"
+                        href="#collapse2"
+                        >Ontario</a
+                      >
+                    </h4>
+                  </div>
+                  <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="holiday-hours top-row"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a
+                        class="collapsed multilingual"
+                        data-french="Québec"
+                        data-toggle="collapse"
+                        data-parent="#accordion"
+                        href="#collapse3"
+                        >Quebec</a
+                      >
+                    </h4>
+                  </div>
+                  <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="holiday-hours top-row"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a
+                        class="collapsed multilingual"
+                        data-french="Ouest"
+                        data-toggle="collapse"
+                        data-parent="#accordion"
+                        href="#collapse4"
+                        >West</a
+                      >
+                    </h4>
+                  </div>
+                  <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="holiday-hours top-row"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Holiday Hours Table Content
+  const holidayDays = {
+    "2025-12-23": {
+      labelEN: "December 23, 2025",
+      labelFR: "23 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "REGULAR HOURS" },
+        { region: "East", store: "Dartmouth", hours: "REGULAR HOURS" },
+        { region: "East", store: "Bathurst", hours: "REGULAR HOURS" },
+        { region: "East", store: "Fredericton", hours: "8:00AM - 7:00PM" },
+        { region: "East", store: "Gander", hours: "REGULAR HOURS" },
+        { region: "East", store: "Labrador City", hours: "REGULAR HOURS" },
+        { region: "East", store: "Moncton", hours: "9:00AM - 9:00PM" },
+        { region: "East", store: "Saint John ", hours: "CLOSED" },
+        { region: "East", store: "St John, Nfld", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Summerside", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Truro", hours: "9:00AM - 7:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Barrie", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Bracebridge", hours: "9:30AM - 4:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brantford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brockville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Burlington", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Chatham", hours: "10:00AM - 8:00PM" },
+        { region: "Ontario", store: "Collingwood", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Danforth", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Hamilton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Huntsville", hours: "9:30AM - 4:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kingston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kitchener", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "London", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "REGULAR HOURS",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "North Bay", hours: "10:00AM - 6:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orangeville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orillia", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa West ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Owen Sound", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Peterborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Richmond Hill", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sarnia", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Simcoe", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Stratford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sudbury", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Trenton ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Vaughan", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Welland", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Weston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Whitby", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Windsor", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Woodstock ", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Matane", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Anjou", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Beauport", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Laval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Longueuil", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sainte-foy", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sherbrooke", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Dorval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "REGULAR HOURS" },
+        { region: "West", store: "Abbotsford", hours: "REGULAR HOURS" },
+        { region: "West", store: "Brandon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Calgary", hours: "REGULAR HOURS" },
+        { region: "West", store: "Coquitlam", hours: "REGULAR HOURS" },
+        { region: "West", store: "Crossiron", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton North ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton South ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Kelowna", hours: "REGULAR HOURS" },
+        { region: "West", store: "Langley", hours: "REGULAR HOURS" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 6:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "REGULAR HOURS" },
+        { region: "West", store: "Prince Albert ", hours: "8:00AM - 7:00PM" },
+        { region: "West", store: "Red Deer ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Regina ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Richmond ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Saskatoon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Victoria", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg East ", hours: "REGULAR HOURS" },
+      ],
+    },
+    "2025-12-24": {
+      labelEN: "December 24, 2025",
+      labelFR: "24 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "10:00AM - 3:00PM" },
+        { region: "East", store: "Dartmouth", hours: "10:00AM - 3:00PM" },
+        { region: "East", store: "Bathurst", hours: "CLOSED" },
+        { region: "East", store: "Fredericton", hours: "CLOSED" },
+        { region: "East", store: "Gander", hours: "9:00AM - 12:00PM" },
+        { region: "East", store: "Labrador City", hours: "CLOSED" },
+        { region: "East", store: "Moncton", hours: "CLOSED" },
+        { region: "East", store: "Saint John ", hours: "CLOSED" },
+        { region: "East", store: "St John, Nfld", hours: "9:00AM - 12:00PM" },
+        { region: "East", store: "Summerside", hours: "8:00AM - 12:00PM" },
+        { region: "East", store: "Truro", hours: "CLOSED" },
+        { region: "East", store: "Yarmouth ", hours: "9:00AM - 12:00PM" },
+        { region: "Ontario", store: "Barrie", hours: "CLOSED" },
+        { region: "Ontario", store: "Bracebridge", hours: "CLOSED" },
+        { region: "Ontario", store: "Brampton", hours: "CLOSED" },
+        { region: "Ontario", store: "Brantford", hours: "CLOSED" },
+        { region: "Ontario", store: "Brockville", hours: "CLOSED" },
+        { region: "Ontario", store: "Burlington", hours: "CLOSED" },
+        { region: "Ontario", store: "Chatham", hours: "CLOSED" },
+        { region: "Ontario", store: "Collingwood", hours: "CLOSED" },
+        { region: "Ontario", store: "Danforth", hours: "CLOSED" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "CLOSED" },
+        { region: "Ontario", store: "Hamilton", hours: "CLOSED" },
+        { region: "Ontario", store: "Huntsville", hours: "CLOSED" },
+        { region: "Ontario", store: "Kapuskasing", hours: "CLOSED" },
+        { region: "Ontario", store: "Kingston", hours: "CLOSED" },
+        { region: "Ontario", store: "Kitchener", hours: "CLOSED" },
+        { region: "Ontario", store: "London", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga North", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga South ", hours: "CLOSED" },
+        { region: "Ontario", store: "Newmarket", hours: "CLOSED" },
+        { region: "Ontario", store: "Niagara On The Lake", hours: "CLOSED" },
+        { region: "Ontario", store: "North Bay", hours: "CLOSED" },
+        { region: "Ontario", store: "Oakville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orangeville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orillia", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa West ", hours: "CLOSED" },
+        { region: "Ontario", store: "Owen Sound", hours: "CLOSED" },
+        { region: "Ontario", store: "Peterborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Richmond Hill", hours: "CLOSED" },
+        { region: "Ontario", store: "Sarnia", hours: "CLOSED" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "10:00AM - 3:00PM",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Simcoe", hours: "CLOSED" },
+        { region: "Ontario", store: "Stratford", hours: "CLOSED" },
+        { region: "Ontario", store: "Sudbury", hours: "CLOSED" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "CLOSED" },
+        { region: "Ontario", store: "Trenton ", hours: "CLOSED" },
+        { region: "Ontario", store: "Vaughan", hours: "CLOSED" },
+        { region: "Ontario", store: "Welland", hours: "CLOSED" },
+        { region: "Ontario", store: "Weston", hours: "CLOSED" },
+        { region: "Ontario", store: "Whitby", hours: "CLOSED" },
+        { region: "Ontario", store: "Windsor", hours: "CLOSED" },
+        { region: "Ontario", store: "Woodstock ", hours: "CLOSED" },
+        { region: "Quebec", store: "Matane", hours: "08:00 - 12:00" },
+        { region: "Quebec", store: "Anjou", hours: "CLOSED" },
+        { region: "Quebec", store: "Beauport", hours: "CLOSED" },
+        { region: "Quebec", store: "Laval", hours: "CLOSED" },
+        { region: "Quebec", store: "Longueuil", hours: "CLOSED" },
+        { region: "Quebec", store: "Sainte-foy", hours: "CLOSED" },
+        { region: "Quebec", store: "Sherbrooke", hours: "CLOSED" },
+        { region: "Quebec", store: "Dorval", hours: "CLOSED" },
+        { region: "Quebec", store: "Drummondville", hours: "CLOSED" },
+        { region: "Quebec", store: "Saint-georges", hours: "CLOSED" },
+        { region: "West", store: "Abbotsford", hours: "CLOSED" },
+        { region: "West", store: "Brandon", hours: "CLOSED" },
+        { region: "West", store: "Calgary", hours: "CLOSED" },
+        { region: "West", store: "Coquitlam", hours: "CLOSED" },
+        { region: "West", store: "Crossiron", hours: "CLOSED" },
+        { region: "West", store: "Edmonton North ", hours: "CLOSED" },
+        { region: "West", store: "Edmonton South ", hours: "CLOSED" },
+        { region: "West", store: "Kelowna", hours: "10:00AM - 5:00PM" },
+        { region: "West", store: "Langley", hours: "CLOSED" },
+        { region: "West", store: "Lethbridge", hours: "CLOSED" },
+        { region: "West", store: "Medicine Hat", hours: "CLOSED" },
+        { region: "West", store: "Prince Albert ", hours: "ClOSED" },
+        { region: "West", store: "Red Deer ", hours: "CLOSED" },
+        { region: "West", store: "Regina ", hours: "CLOSED" },
+        { region: "West", store: "Richmond ", hours: "CLOSED" },
+        { region: "West", store: "Saskatoon", hours: "CLOSED" },
+        { region: "West", store: "Victoria", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg ", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg East ", hours: "CLOSED" },
+      ],
+    },
+    "2025-12-25": {
+      labelEN: "December 25, 2025",
+      labelFR: "25 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "CLOSED" },
+        { region: "East", store: "Dartmouth", hours: "CLOSED" },
+        { region: "East", store: "Bathurst", hours: "CLOSED" },
+        { region: "East", store: "Fredericton", hours: "CLOSED" },
+        { region: "East", store: "Gander", hours: "CLOSED" },
+        { region: "East", store: "Labrador City", hours: "CLOSED" },
+        { region: "East", store: "Moncton", hours: "CLOSED" },
+        { region: "East", store: "Saint John ", hours: "CLOSED" },
+        { region: "East", store: "St John, Nfld", hours: "CLOSED" },
+        { region: "East", store: "Summerside", hours: "CLOSED" },
+        { region: "East", store: "Truro", hours: "CLOSED" },
+        { region: "East", store: "Yarmouth ", hours: "CLOSED" },
+        { region: "Ontario", store: "Barrie", hours: "CLOSED" },
+        { region: "Ontario", store: "Bracebridge", hours: "CLOSED" },
+        { region: "Ontario", store: "Brampton", hours: "CLOSED" },
+        { region: "Ontario", store: "Brantford", hours: "CLOSED" },
+        { region: "Ontario", store: "Brockville", hours: "CLOSED" },
+        { region: "Ontario", store: "Burlington", hours: "CLOSED" },
+        { region: "Ontario", store: "Chatham", hours: "CLOSED" },
+        { region: "Ontario", store: "Collingwood", hours: "CLOSED" },
+        { region: "Ontario", store: "Danforth", hours: "CLOSED" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "CLOSED" },
+        { region: "Ontario", store: "Hamilton", hours: "CLOSED" },
+        { region: "Ontario", store: "Huntsville", hours: "CLOSED" },
+        { region: "Ontario", store: "Kapuskasing", hours: "CLOSED" },
+        { region: "Ontario", store: "Kingston", hours: "CLOSED" },
+        { region: "Ontario", store: "Kitchener", hours: "CLOSED" },
+        { region: "Ontario", store: "London", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga North", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga South ", hours: "CLOSED" },
+        { region: "Ontario", store: "Newmarket", hours: "CLOSED" },
+        { region: "Ontario", store: "Niagara On The Lake", hours: "CLOSED" },
+        { region: "Ontario", store: "North Bay", hours: "CLOSED" },
+        { region: "Ontario", store: "Oakville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orangeville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orillia", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa West ", hours: "CLOSED" },
+        { region: "Ontario", store: "Owen Sound", hours: "CLOSED" },
+        { region: "Ontario", store: "Peterborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Richmond Hill", hours: "CLOSED" },
+        { region: "Ontario", store: "Sarnia", hours: "CLOSED" },
+        { region: "Ontario", store: "Sault Ste. Marie", hours: "CLOSED" },
+        { region: "Ontario", store: "Scarborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Simcoe", hours: "CLOSED" },
+        { region: "Ontario", store: "Stratford", hours: "CLOSED" },
+        { region: "Ontario", store: "Sudbury", hours: "CLOSED" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "CLOSED" },
+        { region: "Ontario", store: "Trenton ", hours: "CLOSED" },
+        { region: "Ontario", store: "Vaughan", hours: "CLOSED" },
+        { region: "Ontario", store: "Welland", hours: "CLOSED" },
+        { region: "Ontario", store: "Weston", hours: "CLOSED" },
+        { region: "Ontario", store: "Whitby", hours: "CLOSED" },
+        { region: "Ontario", store: "Windsor", hours: "CLOSED" },
+        { region: "Ontario", store: "Woodstock ", hours: "CLOSED" },
+        { region: "Quebec", store: "Matane", hours: "CLOSED" },
+        { region: "Quebec", store: "Anjou", hours: "CLOSED" },
+        { region: "Quebec", store: "Beauport", hours: "CLOSED" },
+        { region: "Quebec", store: "Laval", hours: "CLOSED" },
+        { region: "Quebec", store: "Longueuil", hours: "CLOSED" },
+        { region: "Quebec", store: "Sainte-foy", hours: "CLOSED" },
+        { region: "Quebec", store: "Sherbrooke", hours: "CLOSED" },
+        { region: "Quebec", store: "Dorval", hours: "CLOSED" },
+        { region: "Quebec", store: "Drummondville", hours: "CLOSED" },
+        { region: "Quebec", store: "Saint-georges", hours: "CLOSED" },
+        { region: "West", store: "Abbotsford", hours: "CLOSED" },
+        { region: "West", store: "Brandon", hours: "CLOSED" },
+        { region: "West", store: "Calgary", hours: "CLOSED" },
+        { region: "West", store: "Coquitlam", hours: "CLOSED" },
+        { region: "West", store: "Crossiron", hours: "CLOSED" },
+        { region: "West", store: "Edmonton North ", hours: "CLOSED" },
+        { region: "West", store: "Edmonton South ", hours: "CLOSED" },
+        { region: "West", store: "Kelowna", hours: "CLOSED" },
+        { region: "West", store: "Langley", hours: "CLOSED" },
+        { region: "West", store: "Lethbridge", hours: "CLOSED" },
+        { region: "West", store: "Medicine Hat", hours: "CLOSED" },
+        { region: "West", store: "Prince Albert ", hours: "CLOSED" },
+        { region: "West", store: "Red Deer ", hours: "CLOSED" },
+        { region: "West", store: "Regina ", hours: "CLOSED" },
+        { region: "West", store: "Richmond ", hours: "CLOSED" },
+        { region: "West", store: "Saskatoon", hours: "CLOSED" },
+        { region: "West", store: "Victoria", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg ", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg East ", hours: "CLOSED" },
+      ],
+    },
+    "2025-12-26": {
+      labelEN: "December 26, 2025",
+      labelFR: "26 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "CLOSED" },
+        { region: "East", store: "Dartmouth", hours: "CLOSED" },
+        { region: "East", store: "Bathurst", hours: "CLOSED" },
+        { region: "East", store: "Fredericton", hours: "CLOSED" },
+        { region: "East", store: "Gander", hours: "CLOSED" },
+        { region: "East", store: "Labrador City", hours: "CLOSED" },
+        { region: "East", store: "Moncton", hours: "CLOSED" },
+        { region: "East", store: "Saint John ", hours: "8:00AM - 5:00PM" },
+        { region: "East", store: "St John, Nfld", hours: "CLOSED" },
+        { region: "East", store: "Summerside", hours: "CLOSED" },
+        { region: "East", store: "Truro", hours: "CLOSED" },
+        { region: "East", store: "Yarmouth ", hours: "CLOSED" },
+        { region: "Ontario", store: "Barrie", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Bracebridge", hours: "8:00AM - 4:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Brantford", hours: "9:00AM - 5:00PM" },
+        { region: "Ontario", store: "Brockville", hours: "8:00AM - 6:00PM" },
+        { region: "Ontario", store: "Burlington", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Chatham", hours: "8:00AM - 6:00PM" },
+        { region: "Ontario", store: "Collingwood", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Danforth", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Hamilton", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Huntsville", hours: "8:00AM - 4:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Kingston", hours: "8:00AM - 6:00PM" },
+        { region: "Ontario", store: "Kitchener", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "London", hours: "8:00AM - 8:00PM" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "8:00AM - 8:00PM",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "8:00AM - 8:00PM",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "8:00AM - 8:00PM" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "8:00AM - 8:00PM",
+        },
+        { region: "Ontario", store: "North Bay", hours: "8:00AM - 6:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Orangeville", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Orillia", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Ottawa", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Ottawa West ", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Owen Sound", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Peterborough", hours: "8:00AM - 7:00PM" },
+        { region: "Ontario", store: "Richmond Hill", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Sarnia", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Sault Ste. Marie", hours: "CLOSED" },
+        { region: "Ontario", store: "Scarborough", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Simcoe", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Stratford", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Sudbury", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Trenton ", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Vaughan", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Welland", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Weston", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Whitby", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Windsor", hours: "8:00AM - 8:00PM" },
+        { region: "Ontario", store: "Woodstock ", hours: "8:00AM - 5:00PM" },
+        { region: "Quebec", store: "Matane", hours: "13:00 - 17:00" },
+        { region: "Quebec", store: "Anjou", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Beauport", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Laval", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Longueuil", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Sainte-foy", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Sherbrooke", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Dorval", hours: "13:00 - 21:00" },
+        { region: "Quebec", store: "Drummondville", hours: "CLOSED" },
+        { region: "Quebec", store: "Saint-georges", hours: "13:00 - 19:30" },
+        { region: "West", store: "Abbotsford", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Brandon", hours: "8:00AM - 6:00PM" },
+        { region: "West", store: "Calgary", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Coquitlam", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Crossiron", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Edmonton North ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Edmonton South ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Kelowna", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Langley", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Lethbridge", hours: "8:00AM - 5:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "8:00AM - 6:00PM" },
+        { region: "West", store: "Prince Albert ", hours: "CLOSED" },
+        { region: "West", store: "Red Deer ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Regina ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Richmond ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Saskatoon", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Victoria", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Winnipeg ", hours: "8:00AM - 8:00PM" },
+        { region: "West", store: "Winnipeg East ", hours: "8:00AM - 8:00PM" },
+      ],
+    },
+    "2025-12-27": {
+      labelEN: "December 27, 2025",
+      labelFR: "27 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "8:00AM - 8:00PM" },
+        { region: "East", store: "Dartmouth", hours: "8:00AM - 8:00PM" },
+        { region: "East", store: "Bathurst", hours: "REGULAR HOURS" },
+        { region: "East", store: "Fredericton", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Gander", hours: "REGULAR HOURS" },
+        { region: "East", store: "Labrador City", hours: "REGULAR HOURS" },
+        { region: "East", store: "Moncton", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Saint John ", hours: "REGULAR HOURS" },
+        { region: "East", store: "St John, Nfld", hours: "REGULAR HOURS" },
+        { region: "East", store: "Summerside", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Truro", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "8:00AM - 5:00PM" },
+        { region: "Ontario", store: "Barrie", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Bracebridge", hours: "9:30AM - 5:30PM" },
+        { region: "Ontario", store: "Brampton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brantford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brockville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Burlington", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Chatham", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Collingwood", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Danforth", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Hamilton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Huntsville", hours: "9:30AM - 5:30PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kingston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kitchener", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "London", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "REGULAR HOURS",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "North Bay", hours: "9:00AM - 5:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orangeville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orillia", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa West ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Owen Sound", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Peterborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Richmond Hill", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sarnia", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "8:00AM - 8:00PM",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Simcoe", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Stratford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sudbury", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Trenton ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Vaughan", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Welland", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Weston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Whitby", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Windsor", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Woodstock ", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Matane", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Anjou", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Beauport", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Laval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Longueuil", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sainte-foy", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sherbrooke", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Dorval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "REGULAR HOURS" },
+        { region: "West", store: "Abbotsford", hours: "REGULAR HOURS" },
+        { region: "West", store: "Brandon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Calgary", hours: "REGULAR HOURS" },
+        { region: "West", store: "Coquitlam", hours: "REGULAR HOURS" },
+        { region: "West", store: "Crossiron", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton North ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton South ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Kelowna", hours: "REGULAR HOURS" },
+        { region: "West", store: "Langley", hours: "REGULAR HOURS" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 6:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "REGULAR HOURS" },
+        { region: "West", store: "Prince Albert ", hours: "9:30AM - 6:00PM" },
+        { region: "West", store: "Red Deer ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Regina ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Richmond ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Saskatoon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Victoria", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg East ", hours: "REGULAR HOURS" },
+      ],
+    },
+    "2025-12-28": {
+      labelEN: "December 28, 2025",
+      labelFR: "28 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "REGULAR HOURS" },
+        { region: "East", store: "Dartmouth", hours: "REGULAR HOURS" },
+        { region: "East", store: "Bathurst", hours: "REGULAR HOURS" },
+        { region: "East", store: "Fredericton", hours: "12:00PM - 5:00PM" },
+        { region: "East", store: "Gander", hours: "REGULAR HOURS" },
+        { region: "East", store: "Labrador City", hours: "REGULAR HOURS" },
+        { region: "East", store: "Moncton", hours: "12:00PM - 5:00PM" },
+        { region: "East", store: "Saint John ", hours: "REGULAR HOURS" },
+        { region: "East", store: "St John, Nfld", hours: "REGULAR HOURS" },
+        { region: "East", store: "Summerside", hours: "CLOSED" },
+        { region: "East", store: "Truro", hours: "12:00PM - 5:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "CLOSED" },
+        { region: "Ontario", store: "Barrie", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Bracebridge", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brantford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brockville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Burlington", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Chatham", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Collingwood", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Danforth", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Hamilton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Huntsville", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kingston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kitchener", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "London", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "REGULAR HOURS",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "North Bay", hours: "11:00AM - 5:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orangeville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orillia", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa West ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Owen Sound", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Peterborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Richmond Hill", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sarnia", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Simcoe", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Stratford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sudbury", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Trenton ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Vaughan", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Welland", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Weston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Whitby", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Windsor", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Woodstock ", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Matane", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Anjou", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Beauport", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Laval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Longueuil", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sainte-foy", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sherbrooke", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Dorval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "REGULAR HOURS" },
+        { region: "West", store: "Abbotsford", hours: "REGULAR HOURS" },
+        { region: "West", store: "Brandon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Calgary", hours: "REGULAR HOURS" },
+        { region: "West", store: "Coquitlam", hours: "REGULAR HOURS" },
+        { region: "West", store: "Crossiron", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton North ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton South ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Kelowna", hours: "REGULAR HOURS" },
+        { region: "West", store: "Langley", hours: "REGULAR HOURS" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 6:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "REGULAR HOURS" },
+        { region: "West", store: "Prince Albert ", hours: "12:00PM - 5:00PM" },
+        { region: "West", store: "Red Deer ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Regina ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Richmond ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Saskatoon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Victoria", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg East ", hours: "REGULAR HOURS" },
+      ],
+    },
+    "2025-12-29": {
+      labelEN: "December 29, 2025",
+      labelFR: "29 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "REGULAR HOURS" },
+        { region: "East", store: "Dartmouth", hours: "REGULAR HOURS" },
+        { region: "East", store: "Bathurst", hours: "REGULAR HOURS" },
+        { region: "East", store: "Fredericton", hours: "10:00AM - 7:00PM" },
+        { region: "East", store: "Gander", hours: "REGULAR HOURS" },
+        { region: "East", store: "Labrador City", hours: "REGULAR HOURS" },
+        { region: "East", store: "Moncton", hours: "9:00AM - 8:00PM" },
+        { region: "East", store: "Saint John ", hours: "REGULAR HOURS" },
+        { region: "East", store: "St John, Nfld", hours: "REGULAR HOURS" },
+        { region: "East", store: "Summerside", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Truro", hours: "9:00AM - 7:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Barrie", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Bracebridge", hours: "9:30AM - 6:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brantford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brockville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Burlington", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Chatham", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Collingwood", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Danforth", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Hamilton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Huntsville", hours: "9:30AM - 6:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kingston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kitchener", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "London", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "REGULAR HOURS",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "North Bay", hours: "10:00AM - 6:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orangeville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orillia", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa West ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Owen Sound", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Peterborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Richmond Hill", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sarnia", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Simcoe", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Stratford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sudbury", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Trenton ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Vaughan", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Welland", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Weston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Whitby", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Windsor", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Woodstock ", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Matane", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Anjou", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Beauport", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Laval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Longueuil", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sainte-foy", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sherbrooke", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Dorval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "REGULAR HOURS" },
+        { region: "West", store: "Abbotsford", hours: "REGULAR HOURS" },
+        { region: "West", store: "Brandon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Calgary", hours: "REGULAR HOURS" },
+        { region: "West", store: "Coquitlam", hours: "REGULAR HOURS" },
+        { region: "West", store: "Crossiron", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton North ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton South ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Kelowna", hours: "REGULAR HOURS" },
+        { region: "West", store: "Langley", hours: "REGULAR HOURS" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 6:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "REGULAR HOURS" },
+        { region: "West", store: "Prince Albert ", hours: "9:00AM - 6:00PM" },
+        { region: "West", store: "Red Deer ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Regina ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Richmond ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Saskatoon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Victoria", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg East ", hours: "REGULAR HOURS" },
+      ],
+    },
+    "2025-12-30": {
+      labelEN: "December 30, 2025",
+      labelFR: "30 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "REGULAR HOURS" },
+        { region: "East", store: "Dartmouth", hours: "REGULAR HOURS" },
+        { region: "East", store: "Bathurst", hours: "REGULAR HOURS" },
+        { region: "East", store: "Fredericton", hours: "10:00AM - 7:00PM" },
+        { region: "East", store: "Gander", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Labrador City", hours: "REGULAR HOURS" },
+        { region: "East", store: "Moncton", hours: "9:00AM - 8:00PM" },
+        { region: "East", store: "Saint John ", hours: "REGULAR HOURS" },
+        { region: "East", store: "St John, Nfld", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Summerside", hours: "8:00AM - 6:00PM" },
+        { region: "East", store: "Truro", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Barrie", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Bracebridge", hours: "9:30AM - 6:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brantford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Brockville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Burlington", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Chatham", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Collingwood", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Danforth", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Hamilton", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Huntsville", hours: "9:30AM - 6:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kingston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Kitchener", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "London", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "REGULAR HOURS",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "North Bay", hours: "10:00AM - 6:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orangeville", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Orillia", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Ottawa West ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Owen Sound", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Peterborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Richmond Hill", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sarnia", hours: "REGULAR HOURS" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "REGULAR HOURS",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Simcoe", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Stratford", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Sudbury", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Trenton ", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Vaughan", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Welland", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Weston", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Whitby", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Windsor", hours: "REGULAR HOURS" },
+        { region: "Ontario", store: "Woodstock ", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Matane", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Anjou", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Beauport", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Laval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Longueuil", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sainte-foy", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Sherbrooke", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Dorval", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "REGULAR HOURS" },
+        { region: "West", store: "Abbotsford", hours: "REGULAR HOURS" },
+        { region: "West", store: "Brandon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Calgary", hours: "REGULAR HOURS" },
+        { region: "West", store: "Coquitlam", hours: "REGULAR HOURS" },
+        { region: "West", store: "Crossiron", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton North ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Edmonton South ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Kelowna", hours: "REGULAR HOURS" },
+        { region: "West", store: "Langley", hours: "REGULAR HOURS" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 6:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "REGULAR HOURS" },
+        { region: "West", store: "Prince Albert ", hours: "9:00AM - 6:00PM" },
+        { region: "West", store: "Red Deer ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Regina ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Richmond ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Saskatoon", hours: "REGULAR HOURS" },
+        { region: "West", store: "Victoria", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg ", hours: "REGULAR HOURS" },
+        { region: "West", store: "Winnipeg East ", hours: "REGULAR HOURS" },
+      ],
+    },
+    "2025-12-31": {
+      labelEN: "December 31, 2025",
+      labelFR: "31 décembre 2025",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "10:00AM - 4:00PM" },
+        { region: "East", store: "Dartmouth", hours: "10:00AM - 4:00PM" },
+        { region: "East", store: "Bathurst", hours: "9:00AM - 3:00PM" },
+        { region: "East", store: "Fredericton", hours: "10:00AM - 4:00PM" },
+        { region: "East", store: "Gander", hours: "9:00AM - 2:00PM" },
+        { region: "East", store: "Labrador City", hours: "9:00AM - 2:00PM" },
+        { region: "East", store: "Moncton", hours: "9:00AM - 5:00PM" },
+        { region: "East", store: "Saint John ", hours: "8:00AM - 4:00PM" },
+        { region: "East", store: "St John, Nfld", hours: "9:00AM - 2:00PM" },
+        { region: "East", store: "Summerside", hours: "8:00AM - 12:00PM" },
+        { region: "East", store: "Truro", hours: "9:00AM - 4:00PM" },
+        { region: "East", store: "Yarmouth ", hours: "9:00AM - 3:00PM" },
+        { region: "Ontario", store: "Barrie", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Bracebridge", hours: "9:30AM - 3:00PM" },
+        { region: "Ontario", store: "Brampton", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Brantford", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Brockville", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Burlington", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Chatham", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Collingwood", hours: "10:00AM - 5:00PM" },
+        { region: "Ontario", store: "Danforth", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Hamilton", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Huntsville", hours: "9:30AM - 3:00PM" },
+        { region: "Ontario", store: "Kapuskasing", hours: "10:00AM - 5:00PM" },
+        { region: "Ontario", store: "Kingston", hours: "10:00AM - 5:00PM" },
+        { region: "Ontario", store: "Kitchener", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "London", hours: "10:00AM - 4:00PM" },
+        {
+          region: "Ontario",
+          store: "Mississauga North",
+          hours: "10:00AM - 4:00PM",
+        },
+        {
+          region: "Ontario",
+          store: "Mississauga South ",
+          hours: "10:00AM - 4:00PM",
+        },
+        { region: "Ontario", store: "Newmarket", hours: "10:00AM - 4:00PM" },
+        {
+          region: "Ontario",
+          store: "Niagara On The Lake",
+          hours: "10:00AM - 4:00PM",
+        },
+        { region: "Ontario", store: "North Bay", hours: "10:00AM - 2:00PM" },
+        { region: "Ontario", store: "Oakville", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Orangeville", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Orillia", hours: "10:00AM - 5:00PM" },
+        { region: "Ontario", store: "Ottawa", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Ottawa West ", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Owen Sound", hours: "10:00AM - 5:00PM" },
+        { region: "Ontario", store: "Peterborough", hours: "9:00AM - 3:00PM" },
+        {
+          region: "Ontario",
+          store: "Richmond Hill",
+          hours: "10:00AM - 4:00PM",
+        },
+        { region: "Ontario", store: "Sarnia", hours: "10:00AM - 4:00PM" },
+        {
+          region: "Ontario",
+          store: "Sault Ste. Marie",
+          hours: "10:00AM - 4:00PM",
+        },
+        { region: "Ontario", store: "Scarborough", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Simcoe", hours: "8:00AM - 3:00PM" },
+        { region: "Ontario", store: "Stratford", hours: "8:00AM - 3:00PM" },
+        { region: "Ontario", store: "Sudbury", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Trenton ", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Vaughan", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Welland", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Weston", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Whitby", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Windsor", hours: "10:00AM - 4:00PM" },
+        { region: "Ontario", store: "Woodstock ", hours: "8:00AM - 3:00PM" },
+        { region: "Quebec", store: "Matane", hours: "08:00 - 15:00" },
+        { region: "Quebec", store: "Anjou", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Beauport", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Laval", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Longueuil", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Sainte-foy", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Sherbrooke", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Dorval", hours: "10:00 - 16:00" },
+        { region: "Quebec", store: "Drummondville", hours: "REGULAR HOURS" },
+        { region: "Quebec", store: "Saint-georges", hours: "10:00 - 16:00" },
+        { region: "West", store: "Abbotsford", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Brandon", hours: "9:00AM - 3:00PM" },
+        { region: "West", store: "Calgary", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Coquitlam", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Crossiron", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Edmonton North ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Edmonton South ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Kelowna", hours: "10:00AM - 5:00PM" },
+        { region: "West", store: "Langley", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Lethbridge", hours: "10:00AM - 3:00PM" },
+        { region: "West", store: "Medicine Hat", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Prince Albert ", hours: "9:00AM - 3:00PM" },
+        { region: "West", store: "Red Deer ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Regina ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Richmond ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Saskatoon", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Victoria", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Winnipeg ", hours: "10:00AM - 4:00PM" },
+        { region: "West", store: "Winnipeg East ", hours: "10:00AM - 4:00PM" },
+      ],
+    },
+    "2026-01-01": {
+      labelEN: "January 1, 2026",
+      labelFR: "1 janvier 2026",
+      hours: [
+        { region: "East", store: "Coldbrook", hours: "CLOSED" },
+        { region: "East", store: "Dartmouth", hours: "CLOSED" },
+        { region: "East", store: "Bathurst", hours: "CLOSED" },
+        { region: "East", store: "Fredericton", hours: "CLOSED" },
+        { region: "East", store: "Gander", hours: "CLOSED" },
+        { region: "East", store: "Labrador City", hours: "CLOSED" },
+        { region: "East", store: "Moncton", hours: "CLOSED" },
+        { region: "East", store: "Saint John ", hours: "CLOSED" },
+        { region: "East", store: "St John, Nfld", hours: "CLOSED" },
+        { region: "East", store: "Summerside", hours: "CLOSED" },
+        { region: "East", store: "Truro", hours: "CLOSED" },
+        { region: "East", store: "Yarmouth ", hours: "CLOSED" },
+        { region: "Ontario", store: "Barrie", hours: "CLOSED" },
+        { region: "Ontario", store: "Bracebridge", hours: "CLOSED" },
+        { region: "Ontario", store: "Brampton", hours: "CLOSED" },
+        { region: "Ontario", store: "Brantford", hours: "CLOSED" },
+        { region: "Ontario", store: "Brockville", hours: "CLOSED" },
+        { region: "Ontario", store: "Burlington", hours: "CLOSED" },
+        { region: "Ontario", store: "Chatham", hours: "CLOSED" },
+        { region: "Ontario", store: "Collingwood", hours: "CLOSED" },
+        { region: "Ontario", store: "Danforth", hours: "CLOSED" },
+        { region: "Ontario", store: "Fort Frances", hours: "CLOSED" },
+        { region: "Ontario", store: "Guelph", hours: "CLOSED" },
+        { region: "Ontario", store: "Hamilton", hours: "CLOSED" },
+        { region: "Ontario", store: "Huntsville", hours: "CLOSED" },
+        { region: "Ontario", store: "Kapuskasing", hours: "CLOSED" },
+        { region: "Ontario", store: "Kingston", hours: "CLOSED" },
+        { region: "Ontario", store: "Kitchener", hours: "CLOSED" },
+        { region: "Ontario", store: "London", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga North", hours: "CLOSED" },
+        { region: "Ontario", store: "Mississauga South ", hours: "CLOSED" },
+        { region: "Ontario", store: "Newmarket", hours: "CLOSED" },
+        { region: "Ontario", store: "Niagara On The Lake", hours: "CLOSED" },
+        { region: "Ontario", store: "North Bay", hours: "CLOSED" },
+        { region: "Ontario", store: "Oakville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orangeville", hours: "CLOSED" },
+        { region: "Ontario", store: "Orillia", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa", hours: "CLOSED" },
+        { region: "Ontario", store: "Ottawa West ", hours: "CLOSED" },
+        { region: "Ontario", store: "Owen Sound", hours: "CLOSED" },
+        { region: "Ontario", store: "Peterborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Richmond Hill", hours: "CLOSED" },
+        { region: "Ontario", store: "Sarnia", hours: "CLOSED" },
+        { region: "Ontario", store: "Sault Ste. Marie", hours: "CLOSED" },
+        { region: "Ontario", store: "Scarborough", hours: "CLOSED" },
+        { region: "Ontario", store: "Simcoe", hours: "CLOSED" },
+        { region: "Ontario", store: "Stratford", hours: "CLOSED" },
+        { region: "Ontario", store: "Sudbury", hours: "CLOSED" },
+        { region: "Ontario", store: "Thunder Bay ", hours: "CLOSED" },
+        { region: "Ontario", store: "Trenton ", hours: "CLOSED" },
+        { region: "Ontario", store: "Vaughan", hours: "10:00AM - 6:00PM" },
+        { region: "Ontario", store: "Welland", hours: "CLOSED" },
+        { region: "Ontario", store: "Weston", hours: "CLOSED" },
+        { region: "Ontario", store: "Whitby", hours: "CLOSED" },
+        { region: "Ontario", store: "Windsor", hours: "CLOSED" },
+        { region: "Ontario", store: "Woodstock ", hours: "CLOSED" },
+        { region: "Quebec", store: "Matane", hours: "CLOSED" },
+        { region: "Quebec", store: "Anjou", hours: "CLOSED" },
+        { region: "Quebec", store: "Beauport", hours: "CLOSED" },
+        { region: "Quebec", store: "Laval", hours: "CLOSED" },
+        { region: "Quebec", store: "Longueuil", hours: "CLOSED" },
+        { region: "Quebec", store: "Sainte-foy", hours: "CLOSED" },
+        { region: "Quebec", store: "Sherbrooke", hours: "CLOSED" },
+        { region: "Quebec", store: "Dorval", hours: "CLOSED" },
+        { region: "Quebec", store: "Drummondville", hours: "CLOSED" },
+        { region: "Quebec", store: "Saint-georges", hours: "CLOSED" },
+        { region: "West", store: "Abbotsford", hours: "CLOSED" },
+        { region: "West", store: "Brandon", hours: "CLOSED" },
+        { region: "West", store: "Calgary", hours: "CLOSED" },
+        { region: "West", store: "Coquitlam", hours: "CLOSED" },
+        { region: "West", store: "Crossiron", hours: "CLOSED" },
+        { region: "West", store: "Edmonton North ", hours: "CLOSED" },
+        { region: "West", store: "Edmonton South ", hours: "CLOSED" },
+        { region: "West", store: "Kelowna", hours: "CLOSED" },
+        { region: "West", store: "Langley", hours: "CLOSED" },
+        { region: "West", store: "Lethbridge", hours: "CLOSED" },
+        { region: "West", store: "Medicine Hat", hours: "CLOSED" },
+        { region: "West", store: "Prince Albert ", hours: "CLOSED" },
+        { region: "West", store: "Red Deer ", hours: "CLOSED" },
+        { region: "West", store: "Regina ", hours: "CLOSED" },
+        { region: "West", store: "Richmond ", hours: "CLOSED" },
+        { region: "West", store: "Saskatoon", hours: "CLOSED" },
+        { region: "West", store: "Victoria", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg ", hours: "CLOSED" },
+        { region: "West", store: "Winnipeg East ", hours: "CLOSED" },
+      ],
+    },
+  };
+
+  const hourMap = {
+    CLOSED: "FERMÉ",
+    "REGULAR HOURS": "HEURES RÉGULIÈRES",
+    "8:00AM": "08:00",
+    "8:30AM": "08:30",
+    "9:00AM": "09:00",
+    "9:30AM": "09:30",
+    "10:00AM": "10:00",
+    "10:30AM": "10:30",
+    "11:00AM": "11:00",
+    "11:30AM": "11:30",
+    "12:00PM": "12:00",
+    "12:30PM": "12:30",
+    "1:00PM": "13:00",
+    "1:30PM": "13:30",
+    "2:00PM": "14:00",
+    "2:30PM": "14:30",
+    "3:00PM": "15:00",
+    "3:30PM": "15:30",
+    "4:00PM": "16:00",
+    "4:30PM": "16:30",
+    "5:00PM": "17:00",
+    "5:30PM": "17:30",
+    "6:00PM": "18:00",
+    "6:30PM": "18:30",
+    "7:00PM": "19:00",
+    "7:30PM": "19:30",
+    "8:00PM": "20:00",
+    "8:30PM": "20:30",
+    "9:00PM": "21:00",
+  };
+
+  // Map region names to their respective top-row containers
+  const regionMap = {
+    East: document.querySelector("#collapse1 .panel-body"),
+    Ontario: document.querySelector("#collapse2 .panel-body"),
+    Quebec: document.querySelector("#collapse3 .panel-body"),
+    West: document.querySelector("#collapse4 .panel-body"),
+  };
+  // Loop through holiday data and append to the right region
+  function renderHolidayDay(dayKey) {
+    const day = holidayDays[dayKey];
+    if (!day) return;
+
+    // Update header
+    const isFrench = document.documentElement.lang === "fr";
+
+    document.getElementById("holiday-text").innerHTML = `
+  <h1> ${isFrench ? "Heures de jour férié" : "Holiday Hours"} </h1>
+  <h2> ${isFrench ? day.labelFR : day.labelEN} </h2>
+`;
+
+    // Clear all regions
+    Object.values(regionMap).forEach((region) => {
+      region
+        .querySelectorAll(".holiday-hours:not(.top-row)")
+        .forEach((el) => el.remove());
+    });
+
+    // Render selected day
+    day.hours.forEach(({ store, region, hours }) => {
+      const hoursFR = convertToFrenchHours(hours);
+
+      const div = document.createElement("div");
+      div.className = "holiday-hours";
+      div.innerHTML = `
+      <div class="store">${store}</div>
+      <div class="hours">${isFrench ? hoursFR : hours}</div>
+    `;
+      regionMap[region]?.appendChild(div);
+    });
+  }
+
+  function convertToFrenchHours(enHours) {
+    if (!enHours) return "";
+    const trimmed = enHours.trim().toUpperCase();
+
+    if (hourMap[trimmed]) {
+      return hourMap[trimmed];
+    }
+
+    const parts = trimmed.split(/\s*-\s*/);
+    if (parts.length === 2) {
+      const start = hourMap[parts[0]];
+      const end = hourMap[parts[1]];
+      if (start && end) {
+        return `${start} - ${end}`;
+      }
+    }
+
+    return enHours;
+  }
+
+  document.querySelector(".panel-heading a").addEventListener("click", function (e) {
+    var clickedHeader = this.closest(".panel").querySelector(".panel-collapse");
+
+    if (clickedHeader.classList.contains("in")) {
+      e.stopPropagation();
+      clickedHeader.classList.remove("in");
+
+    }
+  });
+
+  const todayISO = new Date().toISOString().split("T")[0];
+  const defaultDay = "2025-12-23";
+
+  const initialDay = document.querySelector(
+    `#holiday-day-nav button[data-day="${todayISO}"]`,
+  )
+    ? todayISO
+    : defaultDay;
+
+  document.querySelectorAll("#holiday-day-nav button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document
+        .querySelectorAll("#holiday-day-nav button")
+        .forEach((b) => b.classList.remove("active"));
+
+      btn.classList.add("active");
+      renderHolidayDay(btn.dataset.day);
+    });
+  });
+
+  document.querySelector(".panel-heading").addEventListener("click", function (e) {
+    this.querySelector(".panel-title a").click();
+  });
+  window.addEventListener("load", () => {
+    document.querySelector("#custom-page-loader").style.display = "none";
+    document.querySelector("#loader-wrap").style.display = "none";
+    document.querySelector("#holiday-hours-page-content").classList.add("visible");
+
+    const initialBtn = document.querySelector(
+      `#holiday-day-nav button[data-day="${initialDay}"]`,
+    );
+
+    if (initialBtn) {
+      initialBtn.classList.add("active");
+      renderHolidayDay(initialDay);
+    }
+  });
+</script>

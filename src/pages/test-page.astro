@@ -1,0 +1,614 @@
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  .shopify-section .homepage-timed-element .col-xs-12 {
+    min-height: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #content {
+    font-family: proxima-soft, sans-serif !important;
+    font-style: normal;
+    font-weight: 200;
+  }
+  #content a {
+    text-decoration: none!important;
+    text-align: center;
+  }
+  #content :not(i) {
+    font-family: inherit !important;
+  }
+  #content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  #content sup {
+    top: -1em;
+    text-transform: lowercase;
+    font-size: 50%;
+  }
+  #content .mobile-visible {
+    display: none !important;
+  }
+  #content .desktop-visible {
+    display: block !important;
+  }
+  #content #custom-home-page-wrap img[loading=""""lazy""""] {
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+  }
+
+  #content #custom-home-page-wrap img[loading=""""lazy""""].loaded {
+    opacity: 1;
+  }
+  #content #custom-home-page-wrap {
+    background:
+      linear-gradient(90deg, #f9d010, #fff200, #f9d010),
+      linear-gradient(
+        to top,
+        rgba(255, 255, 255, 1) 0,
+        rgba(255, 255, 255, 0) 7%
+      );
+    background-blend-mode: overlay;
+    overflow: hidden;
+    padding-bottom: 50px;
+  }
+
+  #content .homepage-section,
+  #content .category-cards-section {
+    width: 1400px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 30px;
+    margin-top: 30px;
+  }
+  #content #hero-banners {
+    /* row-gap: 0px; */
+    margin-top: 10px;
+  }
+  #content .promoBanner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* Utility Classes */
+  #content .promoBanner,
+  #content .category-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  #content .rounded-xl {
+    border-radius: 40px;
+  }
+  #content .rounded-lg {
+    border-radius: 25px;
+  }
+  #content .rounded-md {
+    border-radius: 15px;
+  }
+  #content .rounded-top-corners {
+    border-radius: 25px 25px 0 0;
+  }
+  #content .rounded-bottom-corners {
+    border-radius: 0 0 25px 25px;
+  }
+  #content .bx-shadow-lg {
+    box-shadow: 2px 2px 5px 0 #00000078;
+  }
+  #content .border-blk {
+    border: 2px solid #000;
+  }
+  #content .bg-wht {
+    background-color: #fff;
+  }
+  #content .animate-png {
+    transition:
+      scale 0.75s ease,
+      filter 0.3s ease,
+      transform 0.3s ease;
+  }
+  #content .animate-png:hover {
+    transition:
+      scale 0.75s ease,
+      filter 0.3s ease,
+      transform 0.3s ease;
+    scale: 1.03;
+    transform: translateY(-10px);
+    filter: drop-shadow(0 6px 4px rgba(0, 0, 0, 0.45));
+  }
+  #content .animate-product:hover {
+    scale: 1.03;
+    transform: translateY(-10px);
+    filter: drop-shadow(0 7px 4px rgba(0, 0, 0, 0.2));
+  }
+  #content .full-width {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  #content .half-width,
+  #content .category-card,
+  #content .three-column {
+    width: 100%;
+  }
+  #content .animate-product:hover .productsTitle {
+    will-change: transform;
+  }
+
+  #content .full-size-link {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  #content img.responsive-size {
+    aspect-ratio: 2000/1400;
+  }
+  #content img.product-size {
+    aspect-ratio: 900/550;
+  }
+
+  #content a.flash:hover {
+    background-color: #ffffff26;
+    transition: 0.5s ease;
+  }
+
+  #content h2#urgency-message br {
+    display: none !important;
+  }
+
+  #content h2#urgency-message {
+    display: block;
+    font-weight: 600;
+    /* font-size: clamp(32px, 5.5vw, 74px); */
+    font-size: clamp(32px, 6.5vw, 85px);
+    line-height: 1.1;
+    padding: 30px 0;
+    background-color: #000;
+    color: #fff;
+    border-radius: 40px;
+    text-shadow: 1px 1px #fff;
+    text-transform: uppercase;
+  }
+  #content h2#urgency-message #urgency-message-date {
+    color: #fef200;
+    display: block;
+  }
+  #content .product-cards-section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0px;
+    align-content: center;
+    row-gap: 0;
+  }
+  #content .product-cards-section .homepage-product-card {
+    position: relative;
+    flex-basis: 24%;
+    align-self: stretch;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    justify-content: end;
+  }
+
+  #content .product-cards-section .saveStoryWrap {
+    max-width: 160px;
+    background-color: #fff;
+    color: #000;
+    margin-top: 0;
+    padding: 5px;
+    border-radius: 15px 15px 0 0;
+    flex-basis: 50%;
+  }
+  #content .product-cards-section p.productsSave {
+    font-size: clamp(17px, 2vw, 19px);
+    font-weight: 700;
+    color: #fef200;
+    background-color: #000;
+    line-height: 1;
+    margin: 0;
+    padding: 3px 0;
+  }
+  #content .product-cards-section p.productsTitle {
+    font-size: clamp(16px, 1.5vw, 18px);
+    font-weight: 900;
+    line-height: 1.1;
+    z-index: 9;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    flex-basis: 50%;
+    text-align: left;
+  }
+  #content .product-cards-section .productsTitleFlex {
+    color: #000;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+    align-items: center;
+    border-radius: 0;
+  }
+  #content .product-cards-section p.productsPrice {
+    font-weight: 900;
+    font-size: clamp(30px, 4vw, 34px);
+    margin: 0;
+    padding: 0;
+  }
+
+  div#hero-button-wrap {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  div#disclaimer {
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+    flex-basis: 100%;
+  }
+  div#disclaimer p {
+    text-align: left;
+    font-size: 11px;
+    color: #000 !important;
+    margin: 10px 0;
+    padding: 0;
+  }
+  i.fa-sharp.fa-light.fa-circle-right::after {
+    content: "" "" \f35a"" "";
+  }
+  a.hero-button {
+    padding: 7px 0;
+    background-color: #fff;
+    font-size: calc(12px + (25 - 20) * ((100vw - 320px) / 680));
+    color: #000;
+    margin: 5px;
+    font-weight: 700;
+    flex-basis: 40%;
+    box-shadow: 2px 2px 5px 0 #00000078;
+    position: unset !important;
+    border-radius: 20px;
+  }
+  a.hero-button svg {
+    vertical-align: text-bottom;
+    color: #000;
+    display: inline;
+    margin: 0 5px;
+    width: calc(12px + (25 - 20) * ((100vw - 320px) / 680));
+    height: calc(12px + (25 - 20) * ((100vw - 320px) / 680));
+  }
+  a.hero-button.desktop-visible {
+    font-size: calc(12px + (26 - 20) * ((100vw - 320px) / 680));
+    flex-basis: 50%;
+    border-radius: 10px;
+  }
+  a.hero-button.desktop-visible i {
+    font-size: calc(12px + (26 - 20) * ((100vw - 320px) / 680));
+  }
+  a.hero-button:hover {
+    background-color: transparent;
+  }
+  i.fa-sharp.fa-light.fa-circle-right {
+    font-size: calc(12px + (24 - 20) * ((100vw - 320px) / 680));
+    margin: 0 2px;
+    font-family: "" "" Font Awesome 6 Pro "" "";
+  }
+
+  #content #cyberSaleBanner-map {
+    padding-top: 8.5%;
+    min-height: 75px;
+    position: relative;
+    background-color: #000;
+    margin-top: 15px;
+  }
+  #content h2.html-cyber-banner {
+    display: block;
+    font-weight: 600;
+    font-size: clamp(25px, 7vw, 50px);
+    line-height: 1.2;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+  }
+
+  @media (min-width: 1600px) {
+    h2.html-cyber-banner {
+      font-size: 55px !important;
+    }
+    #content a.hero-button {
+      font-size: 21px;
+    }
+    #content a.hero-button svg {
+      width: 21px;
+      height: 21px;
+    }
+    #content a.hero-button.desktop-visible {
+      font-size: 26px;
+    }
+    #content a.hero-button.desktop-visible i {
+      font-size: 26px;
+    }
+    i.fa-sharp.fa-light.fa-circle-right {
+      font-size: 19px;
+      margin: 0 2px;
+      font-family: "" "" Font Awesome 6 Pro "" "";
+    }
+  }
+  @media (max-width: 1400px) {
+    #content #custom-home-page-wrap {
+      padding: 0 10px 50px 10px !important;
+    }
+  }
+  @media (max-width: 1050px) {
+    #disclaimer p {
+      text-align: left;
+      font-size: 9px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    #content .product-cards-section .homepage-product-card {
+      flex-basis: 45%;
+    }
+  }
+  @media (min-width: 601px) {
+    #content .half-width,
+    #content .category-card {
+      width: calc(50% - 1rem); /* Add spacing between columns */
+    }
+    #content .three-column {
+      width: calc(33% - 1rem); /* Add spacing between columns */
+    }
+    #content .full-width.rounded-lg.animate-png:hover {
+      transition: unset;
+      scale: unset;
+      transform: unset;
+      filter: unset;
+    }
+    #content .full-width.rounded-lg.animate-png {
+      box-shadow: 2px 2px 5px 0 #00000078;
+    }
+
+    #content img.banner-xl-size {
+      aspect-ratio: 2200/750;
+    }
+
+    #content img.banner-lg-size {
+      aspect-ratio: 2200/600;
+    }
+
+    #content img.banner-md-size {
+      aspect-ratio: 2200/450;
+    }
+
+    #content img.banner-sm-size {
+      aspect-ratio: 2200/250;
+    }
+    #content .custom-link-1 {
+      position: absolute;
+      top: 21%;
+      width: 23.5%;
+      height: 80%;
+      left: 74.5%;
+      z-index: 1;
+    }
+    #content .custom-link-2 {
+      position: absolute;
+      top: 14%;
+      width: 32.5%;
+      height: 70%;
+      left: 67.5%;
+    }
+    #content .custom-link-3 {
+      position: absolute;
+      top: 0;
+      width: 30%;
+      height: 100%;
+      left: 70%;
+    }
+    #content .custom-link-4 {
+      position: absolute;
+      top: 62%;
+      width: 16%;
+      height: 38%;
+      left: 47%;
+    }
+    #content #hero-banners {
+      /* row-gap: 0px; */
+      margin-top: 10px;
+    }
+  }
+  @media (max-width: 600px) {
+    #content .mobile-visible {
+      display: block !important;
+    }
+    #content .desktop-visible {
+      display: none !important;
+    }
+    #content #hero-banners {
+      row-gap: 30px;
+    }
+    #content img.banner-xl-size {
+      aspect-ratio: 640/900;
+    }
+
+    #content img.banner-lg-size {
+      aspect-ratio: 640/900;
+    }
+
+    #content img.banner-md-size {
+      aspect-ratio: 700/490;
+    }
+
+    #content img.banner-sm-size {
+      aspect-ratio: 640/350;
+    }
+
+    /* END Mobile Responsive image Styles */
+
+    /* Mobile Link Styles */
+
+    #content .rounded-xl {
+      border-radius: 25px;
+    }
+
+    #content .rounded-top-corners {
+      border-radius: 10px 10px 0 0;
+    }
+    #content .rounded-bottom-corners {
+      border-radius: 0 0 10px 10px;
+    }
+    #content a.custom-link-4 {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 69%;
+      left: 0;
+      z-index: 1;
+    }
+    #content a.custom-link-2 {
+      position: absolute;
+      top: 69%;
+      width: 100%;
+      height: 27%;
+      left: 0;
+      z-index: 1;
+    }
+    #content a.custom-link-3 {
+      position: absolute;
+      top: 62%;
+      width: 100%;
+      height: 25%;
+      left: 0;
+      z-index: 1;
+    }
+    #content a.custom-link-1 {
+      position: absolute;
+      top: 92.5%;
+      width: 100%;
+      height: 7.5%;
+      left: 0;
+      z-index: 1;
+    }
+
+    a.LG-link.flash {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 83%;
+      position: absolute;
+    }
+
+    a.hero-button {
+      flex-basis: 90%;
+      margin: 10px;
+      padding: 10px 0;
+      font-size: calc(14px + (25 - 20) * ((100vw - 320px) / 680));
+      box-shadow: 0 2px 5px 0 #00000078;
+    }
+    a.hero-button svg {
+      vertical-align: text-bottom;
+      color: #000;
+      display: inline;
+      margin: 0 5px;
+      width: calc(16px + (25 - 20) * ((100vw - 320px) / 680));
+      height: calc(16px + (25 - 20) * ((100vw - 320px) / 680));
+    }
+    #content .product-cards-section .homepage-product-card {
+      flex-basis: 90%;
+    }
+    #content .product-cards-section .homepage-product-card .productsTitleFlex {
+      padding: 6px 0;
+    }
+    i.fa-sharp.fa-light.fa-circle-right {
+      margin: 0;
+    }
+    #disclaimer p {
+      text-align: left;
+      font-size: 8px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+      margin: 0;
+    }
+    #content h2#urgency-message br {
+      display: block !important;
+    }
+
+    #content h2#urgency-message {
+      padding: 25px 0px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 25px;
+      text-shadow: 1px 1px #fff;
+      line-height: 1;
+    }
+
+    #content h2#urgency-message,
+    #urgency-message-date {
+      font-size: clamp(29px, 8vw, 74px);
+    }
+  }
+  @media (max-width: 500px) {
+    #content .product-cards-section .homepage-product-card .productsTitleFlex {
+      justify-content: center;
+      gap: 7px;
+    }
+    #content .product-cards-section .homepage-product-card {
+      flex-basis: 100%;
+      margin: 15px auto;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 415px) {
+    #content .product-cards-section .homepage-product-card {
+      flex-basis: 95%;
+    }
+  }
+  @media (max-width: 320px) {
+    a.hero-button {
+      font-size: calc(11px + (25 - 20) * ((100vw - 320px) / 680));
+    }
+  }
+</style>
+
+<div id="content">
+  <div id="custom-home-page-wrap">
+    <div class="homepage-section">
+<!-- Insert PromoBanners Here -->
+<div class="promoBanner full-width rounded"><picture><source media="(max-width:600px)" srcset="https://picsum.photos/640/900 600w, https://picsum.photos/640/900 1200w" sizes="100vw"><img loading="lazy" onload="this.classList.add('loaded')" class="banner-xl-size" width="2200" height="750" sizes="(max-width:600px) 600px, 100vw" alt="Lorem Ipsum is simply dummy text of the printing and typesetting" src="https://picsum.photos/2200/750"></picture><a class="hero-link-1" href="/test-page-1" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a><a class="hero-link-2" href="/test-page-2" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+<div class="promoBanner full-width rounded"><picture><source media="(max-width:600px)" srcset="https://picsum.photos/700/490 600w, https://picsum.photos/700/490 1200w" sizes="100vw"><img loading="lazy" onload="this.classList.add('loaded')" class="banner-md-size" width="2200" height="450" sizes="(max-width:600px) 600px, 100vw" alt="Lorem Ipsum is simply dummy text of the printing and typesetting" src="https://picsum.photos/2200/450"></picture><a class="flash full-size-link" href="/test-page-3" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-4" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-5" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-6" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-7" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+      <div class="product-cards-section">
+<!-- Insert Product Cards Here -->
+ <div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-8" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$199</p><p class="productsSave">SAVE $499</p></div><p class="productsTitle">SOFA</p></div></a></div>
+<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-9" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$299</p><p class="productsSave">SAVE $500</p></div><p class="productsTitle">CHAIR</p></div></a></div>
+<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-10" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$399</p><p class="productsSave">SAVE $501</p></div><p class="productsTitle">TABLE</p></div></a></div>
+<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-11" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$499</p><p class="productsSave">SAVE $502</p></div><p class="productsTitle">MATTRESS</p></div></a></div>
+
+      </div>
+    </div>
+  </div>
+</div>

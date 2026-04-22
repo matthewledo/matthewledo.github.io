@@ -1,0 +1,19 @@
+---
+// src/pages/projects/[id].astro
+import CaseStudyLayout from "../../components/case-study/CaseStudyLayout.astro";
+import { projects } from "../../data/projectData.js";
+
+// 1. GENERATE PATHS
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id }, // Creates the URL (e.g., /projects/ecommerce-seo)
+    props: { project },         // PASSES THE DATA to the component below
+  }));
+}
+
+// 2. RETRIEVE DATA
+// If this line is missing or wrong, 'project' will be undefined!
+const { project } = Astro.props; 
+---
+
+<CaseStudyLayout project={project} />

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/commons/hero/hero.astro";
-import ProjectCard from "../components/project/projectCard.astro";
+import ProjectCard from "../components/projectCard/projectCard.astro";
 import Banner from "../components/commons/banners/banner.astro";
 import { projects } from "../data/projectData.js";
 ---
@@ -12,7 +12,7 @@ import { projects } from "../data/projectData.js";
   <main class="max-w-7xl mx-auto py-12 px-6">
     <div class="mb-12 flex justify-center">
       <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200" id="filter-container">
-        {["All", "Ecommerce", "SEO", "Frontend"].map((filter) => (
+        {["All", "Frontend", "Automation Tool", "SEO", "Ecommerce"].map((filter) => (
           <button 
             class="filter-btn px-6 py-2 text-sm font-bold rounded-lg transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-900"
             data-filter={filter.toLowerCase()}
@@ -29,7 +29,7 @@ import { projects } from "../data/projectData.js";
     >
       {
         projects.map((project, index) => (
-          <div class="project-wrapper" data-category={project.category}>
+          <div class="project-wrapper" data-category={Array.isArray(project.category) ? project.category.map(c => c.toLowerCase()).join('/') : project.category}>
             <ProjectCard 
               index={index} 
               title={project.title}
@@ -39,7 +39,7 @@ import { projects } from "../data/projectData.js";
               demo={project.demo}
               code={project.code}
               category={project.category}
-              caseStudy={project.caseStudy}
+              id={project.id}
             />
           </div>
         ))
@@ -83,8 +83,8 @@ import { projects } from "../data/projectData.js";
 
       // 2. Filter Logic
       const filtered = Array.from(wrappers).filter(el => {
-        const cat = el.dataset.category?.toLowerCase() || "";
-        return normalized === 'all' || cat === normalized;
+        const cat = el.dataset.category?.split('/');
+        return normalized === 'all' || cat?.includes(normalized);
       });
 
       // 3. Update Visibility

@@ -1,0 +1,153 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectActions from '../../components/ProjectActions.jsx';
+import { HiArrowLeft, HiExternalLink, HiCode } from "react-icons/hi";
+import VintageTone from "./src/assets/img-projects/vintageToneApp.jpg";
+
+interface Props {
+  project: any; // Ideally import the type from your data file
+}
+
+
+const project = {
+    title: "Automated HTML Generator & Custom CSS Framework",
+    description:
+      "Developed a custom automation tool to streamline frontend development via Google Sheets, resulting in a 20% reduction in development time for weekly marketing campaigns.",
+    image: VintageTone.src,
+    technologies: ["HTML", "CSS", "Google Sheets"],
+    demo: "https://vintage-tone-front-vue.vercel.app",
+    code: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
+    category: ["Frontend", "Automation Tool"],
+    id: "Automated-HTML-Generator-&-Custom-CSS-Framework",
+    // New Case Study Fields
+    role: "Lead Developer",
+    techStack: "HTML, CSS, Google Sheets",
+    timeline: "1 Week",
+    client: "Leon's Furniture Company",
+    challenge: "Weekly high-volume updates for Homepages and VIP events were creating a development bottleneck. Manual coding was time-consuming and prone to errors, while the lack of a standardized design system led to visual inconsistencies and significant CSS bloat (over 1,400 lines).",
+    solution: "I engineered a Google Sheets-based HTML Generator paired with a custom-built utility-first CSS framework. This tool democratized the development process, allowing non-technical staff to generate production-ready code via a simple UI, effectively eliminating the bottleneck and enforcing code standards automatically.",
+    results: [
+      "Empowered non-technical team members to perform routine updates without developer intervention.",
+      "Implemented a standardized utility-first CSS framework that reduced stylesheet size by 60%, improving maintainability.",
+      "Achieved a 20% reduction in development time for weekly campaigns, enabling faster go-to-market and more agile marketing strategies."
+]
+  };
+---
+<Layout title={`${project.title} | Case Study`} description={project.description}>
+  <div class="bg-slate-50 border-b border-slate-200 pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <a href="/projects" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-emerald-600 mb-8 transition-colors">
+        <HiArrowLeft /> Back to Projects
+      </a>
+      
+      <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+        {project.title}
+      </h1>
+      
+      <p class="text-xl text-slate-600 max-w-3xl leading-relaxed">
+        {project.description}
+      </p>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+    
+    <div class="lg:col-span-2 space-y-16">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          class="w-full h-auto object-cover"
+        />
+      </div>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+          <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+          The Challenge
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed">
+          {project.challenge}
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+          <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+          The Solution
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          {project.solution}
+        </p>
+        
+        <div class="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-md border border-slate-200">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section class="bg-emerald-50/50 rounded-2xl p-8 border border-emerald-100">
+        <h2 class="text-2xl font-bold text-emerald-800 mb-6">Key Outcomes</h2>
+        <ul class="space-y-4">
+          {project.results.map((result) => (
+            <li class="flex items-start gap-3 text-slate-700">
+              <span class="mt-1.5 w-2 h-2 bg-emerald-500 rounded-full shrink-0"></span>
+              <span class="font-medium">{result}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <aside class="lg:col-span-1">
+      <div class="sticky top-24 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Project Info</h3>
+        
+        <div class="space-y-6">
+          <div>
+            <span class="block text-sm text-slate-500 mb-1">Role</span>
+            <span class="block font-bold text-slate-900">{project.role}</span>
+          </div>
+
+                    <div>
+            <span class="block text-sm text-slate-500 mb-1">Tech Stack</span>
+            <span class="block font-bold text-slate-900">{project.techStack}</span>
+          </div>
+          
+          <div>
+            <span class="block text-sm text-slate-500 mb-1">Client</span>
+            <span class="block font-bold text-slate-900">{project.client}</span>
+          </div>
+          
+          <div>
+            <span class="block text-sm text-slate-500 mb-1">Timeline</span>
+            <span class="block font-bold text-slate-900">{project.timeline}</span>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <div class="flex flex-col gap-3">
+            {project.demo && (
+             <ProjectActions 
+  client:load 
+  videoSrc="/src/assets/video-projects/HTML Generator Recording_Shortened_1080p.mp4" 
+  sourceImages={[
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-1.webp", caption: "The Google Sheets UI: Dropdowns map to CSS classes" },
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-2.webp", caption: "The formula logic that determines element HTML and image width/height attributes" },
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-3.webp", caption: "The concatenation logic handling dynamic image inputs" },
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-4.webp", caption: "The concatenation logic handling dynamic banner element inputs" },
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-5.webp", caption: "The concatenation logic handiling the consolidation of the HTML output" },
+    { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-6.webp", caption: "CSS/HTML Comparison: 1400 lines (Old) vs 600 lines (New)" }
+  ]}
+/>
+            )}
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+</Layout>

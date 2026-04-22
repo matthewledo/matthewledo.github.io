@@ -1,0 +1,100 @@
+---
+import { HiArrowRight } from "react-icons/hi";
+
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  demo?: string;
+  code?: string;
+  category: string[];
+  index: number; 
+  id?: string;
+}
+
+const { title, description, image, technologies, demo, code, category, index, id } = Astro.props;
+---
+ 
+{id && (
+<a
+      class="flex items-center gap-1 text-sm font-bold hover:text-emerald-600 transition-colors text-slate-900 transition-colors h-full"
+      href={`/projects/${id}`}
+    >
+<div
+  data-index={index}
+  data-category={Array.isArray(category) ? category.map(c => c.toLowerCase()).join('/') : category}
+  class="group flex flex-col h-full overflow-hidden rounded-xl bg-white border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+>
+  <div class="relative overflow-hidden aspect-video bg-[linear-gradient(180deg,#0f172a_60%,#059669)]">
+    <img
+      src={image}
+      alt={`image from project ${title}`}
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+    <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+  </div>
+
+  <div class="flex grow flex-col p-6">
+    <span class="text-[10px] uppercase tracking-widest font-bold text-emerald-600 mb-2">
+ {Array.isArray(category) ? category.join(" | ") : (category)}
+    </span>
+
+    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+      {title}
+    </h3>
+
+    <p class="text-sm text-slate-600 leading-relaxed mb-6 line-clamp-3">
+      {description}
+    </p>
+
+    <div class="mt-auto">
+      <div class="flex flex-wrap gap-2 mb-6">
+        {technologies.map((tech) => (
+          <span class="rounded-lg bg-slate-50 border border-slate-100 text-slate-500 px-2.5 py-1 text-[11px] font-medium">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-6 pt-4 border-t border-slate-100">
+        {/* <a
+          class="flex items-center gap-1 text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={demo}
+        >
+          Live Demo
+          <HiArrowRight size={16} />
+        </a>
+
+        <a
+          class="flex items-center gap-1 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors"
+          href={code}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source Code
+        </a> */}
+
+          {/* {id && (
+    <a
+      class="flex items-center gap-1 text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+      href={`/projects/${id}`}
+    >
+      Case Study
+      <HiArrowRight size={16} />
+    </a>
+  )} */}
+      <p
+      class="flex items-center gap-1 text-sm font-bold "
+    >
+      Case Study
+      <HiArrowRight size={16} />
+    </p>
+      </div>
+    </div>
+  </div>
+</div>
+   </a>
+  )}
