@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import ProjectActions from '../../components/ProjectActions.jsx';
 import { HiArrowLeft, HiExternalLink, HiCode } from "react-icons/hi";
-import VintageTone from "../assets/img-projects/vintageToneApp.jpg";
+import VintageTone from "/src/assets/img-projects/vintageToneApp.jpg";
 
 interface Props {
   project: any; // Ideally import the type from your data file
@@ -132,7 +132,7 @@ const project = {
           <div class="flex flex-col gap-3">
             {project.demo && (
              <ProjectActions 
-  client:load 
+client:load 
   videoSrc="/src/assets/video-projects/HTML Generator Recording_Shortened_1080p.mp4" 
   sourceImages={[
     { src: "/src/assets/img-projects/HTML Generator/modal-html-generator-1.webp", caption: "The Google Sheets UI: Dropdowns map to CSS classes" },
