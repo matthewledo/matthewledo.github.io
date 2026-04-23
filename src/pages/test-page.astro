@@ -13,7 +13,7 @@
     font-weight: 200;
   }
   #content a {
-    text-decoration: none!important;
+    text-decoration: none !important;
     text-align: center;
   }
   #content :not(i) {
@@ -36,12 +36,12 @@
   #content .desktop-visible {
     display: block !important;
   }
-  #content #custom-home-page-wrap img[loading=""""lazy""""] {
+  #content #custom-home-page-wrap img[loading="lazy"] {
     opacity: 0;
     transition: opacity 0.6s ease-in;
   }
 
-  #content #custom-home-page-wrap img[loading=""""lazy""""].loaded {
+  #content #custom-home-page-wrap img[loading="lazy"].loaded {
     opacity: 1;
   }
   #content #custom-home-page-wrap {
@@ -594,20 +594,254 @@
 <div id="content">
   <div id="custom-home-page-wrap">
     <div class="homepage-section">
-<!-- Insert PromoBanners Here -->
-<div class="promoBanner full-width rounded"><picture><source media="(max-width:600px)" srcset="https://picsum.photos/640/900 600w, https://picsum.photos/640/900 1200w" sizes="100vw"><img loading="lazy" onload="this.classList.add('loaded')" class="banner-xl-size" width="2200" height="750" sizes="(max-width:600px) 600px, 100vw" alt="Lorem Ipsum is simply dummy text of the printing and typesetting" src="https://picsum.photos/2200/750"></picture><a class="hero-link-1" href="/test-page-1" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a><a class="hero-link-2" href="/test-page-2" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
-<div class="promoBanner full-width rounded"><picture><source media="(max-width:600px)" srcset="https://picsum.photos/700/490 600w, https://picsum.photos/700/490 1200w" sizes="100vw"><img loading="lazy" onload="this.classList.add('loaded')" class="banner-md-size" width="2200" height="450" sizes="(max-width:600px) 600px, 100vw" alt="Lorem Ipsum is simply dummy text of the printing and typesetting" src="https://picsum.photos/2200/450"></picture><a class="flash full-size-link" href="/test-page-3" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
-<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-4" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
-<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-5" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
-<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-6" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
-<div class="promoBanner half-width animate-png bx-shadow-lg rounded"><img loading="lazy" onload="this.classList.add('loaded')" class="responsive-size" src="https://picsum.photos/2000/1400" srcset="https://picsum.photos/2000/1400 400w, https://picsum.photos/2000/1400 700w, https://picsum.photos/2000/1400 1000w, https://picsum.photos/2000/1400 1400w" sizes="(max-width: 600px) 100vw, 50vw" width="2000" height="1400" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><a class="flash full-size-link" href="/test-page-7" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a></div>
+      <!-- Insert PromoBanners Here -->
+      <div class="promoBanner full-width rounded">
+        <picture
+          ><source
+            media="(max-width:600px)"
+            srcset="
+              https://picsum.photos/640/900  600w,
+              https://picsum.photos/640/900 1200w
+            "
+            sizes="100vw" />
+          <img
+            loading="lazy"
+            onload="this.classList.add('loaded')"
+            class="banner-xl-size"
+            width="2200"
+            height="750"
+            sizes="(max-width:600px) 600px, 100vw"
+            alt="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            src="https://picsum.photos/2200/750" /></picture
+        ><a
+          class="hero-link-1"
+          href="/test-page-1"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a
+        ><a
+          class="hero-link-2"
+          href="/test-page-2"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
+      <div class="promoBanner full-width rounded">
+        <picture
+          ><source
+            media="(max-width:600px)"
+            srcset="
+              https://picsum.photos/700/490  600w,
+              https://picsum.photos/700/490 1200w
+            "
+            sizes="100vw" />
+          <img
+            loading="lazy"
+            onload="this.classList.add('loaded')"
+            class="banner-md-size"
+            width="2200"
+            height="450"
+            sizes="(max-width:600px) 600px, 100vw"
+            alt="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            src="https://picsum.photos/2200/450" /></picture
+        ><a
+          class="flash full-size-link"
+          href="/test-page-3"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
+      <div class="promoBanner half-width animate-png bx-shadow-lg rounded">
+        <img
+          loading="lazy"
+          onload="this.classList.add('loaded')"
+          class="responsive-size"
+          src="https://picsum.photos/2000/1400"
+          srcset="
+            https://picsum.photos/2000/1400  400w,
+            https://picsum.photos/2000/1400  700w,
+            https://picsum.photos/2000/1400 1000w,
+            https://picsum.photos/2000/1400 1400w
+          "
+          sizes="(max-width: 600px) 100vw, 50vw"
+          width="2000"
+          height="1400"
+          alt="Lorem Ipsum is simply dummy text of the printing and typesetting" /><a
+          class="flash full-size-link"
+          href="/test-page-4"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
+      <div class="promoBanner half-width animate-png bx-shadow-lg rounded">
+        <img
+          loading="lazy"
+          onload="this.classList.add('loaded')"
+          class="responsive-size"
+          src="https://picsum.photos/2000/1400"
+          srcset="
+            https://picsum.photos/2000/1400  400w,
+            https://picsum.photos/2000/1400  700w,
+            https://picsum.photos/2000/1400 1000w,
+            https://picsum.photos/2000/1400 1400w
+          "
+          sizes="(max-width: 600px) 100vw, 50vw"
+          width="2000"
+          height="1400"
+          alt="Lorem Ipsum is simply dummy text of the printing and typesetting" /><a
+          class="flash full-size-link"
+          href="/test-page-5"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
+      <div class="promoBanner half-width animate-png bx-shadow-lg rounded">
+        <img
+          loading="lazy"
+          onload="this.classList.add('loaded')"
+          class="responsive-size"
+          src="https://picsum.photos/2000/1400"
+          srcset="
+            https://picsum.photos/2000/1400  400w,
+            https://picsum.photos/2000/1400  700w,
+            https://picsum.photos/2000/1400 1000w,
+            https://picsum.photos/2000/1400 1400w
+          "
+          sizes="(max-width: 600px) 100vw, 50vw"
+          width="2000"
+          height="1400"
+          alt="Lorem Ipsum is simply dummy text of the printing and typesetting" /><a
+          class="flash full-size-link"
+          href="/test-page-6"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
+      <div class="promoBanner half-width animate-png bx-shadow-lg rounded">
+        <img
+          loading="lazy"
+          onload="this.classList.add('loaded')"
+          class="responsive-size"
+          src="https://picsum.photos/2000/1400"
+          srcset="
+            https://picsum.photos/2000/1400  400w,
+            https://picsum.photos/2000/1400  700w,
+            https://picsum.photos/2000/1400 1000w,
+            https://picsum.photos/2000/1400 1400w
+          "
+          sizes="(max-width: 600px) 100vw, 50vw"
+          width="2000"
+          height="1400"
+          alt="Lorem Ipsum is simply dummy text of the printing and typesetting" /><a
+          class="flash full-size-link"
+          href="/test-page-7"
+          title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+          aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"></a>
+      </div>
       <div class="product-cards-section">
-<!-- Insert Product Cards Here -->
- <div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-8" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$199</p><p class="productsSave">SAVE $499</p></div><p class="productsTitle">SOFA</p></div></a></div>
-<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-9" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$299</p><p class="productsSave">SAVE $500</p></div><p class="productsTitle">CHAIR</p></div></a></div>
-<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-10" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$399</p><p class="productsSave">SAVE $501</p></div><p class="productsTitle">TABLE</p></div></a></div>
-<div class="rounded homepage-product-card animate-product"><a class="" href="/test-page-11" title="Lorem Ipsum is simply dummy text of the printing and typesetting" aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"><img loading="lazy" onload="this.classList.add('loaded')" class="product-size" width="900" height="550" src="https://picsum.photos/900/550" srcset="https://picsum.photos/900/550 400w, https://picsum.photos/900/550 800w" alt="Lorem Ipsum is simply dummy text of the printing and typesetting"><div class="productsTitleFlex"><div class="saveStoryWrap"><p class="productsPrice">$499</p><p class="productsSave">SAVE $502</p></div><p class="productsTitle">MATTRESS</p></div></a></div>
-
+        <!-- Insert Product Cards Here -->
+        <div class="rounded homepage-product-card animate-product">
+          <a
+            class=""
+            href="/test-page-8"
+            title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            ><img
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+              class="product-size"
+              width="900"
+              height="550"
+              src="https://picsum.photos/900/550"
+              srcset="
+                https://picsum.photos/900/550 400w,
+                https://picsum.photos/900/550 800w
+              "
+              alt="Lorem Ipsum is simply dummy text of the printing and typesetting" />
+            <div class="productsTitleFlex">
+              <div class="saveStoryWrap">
+                <p class="productsPrice">$199</p>
+                <p class="productsSave">SAVE $499</p>
+              </div>
+              <p class="productsTitle">SOFA</p>
+            </div></a
+          >
+        </div>
+        <div class="rounded homepage-product-card animate-product">
+          <a
+            class=""
+            href="/test-page-9"
+            title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            ><img
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+              class="product-size"
+              width="900"
+              height="550"
+              src="https://picsum.photos/900/550"
+              srcset="
+                https://picsum.photos/900/550 400w,
+                https://picsum.photos/900/550 800w
+              "
+              alt="Lorem Ipsum is simply dummy text of the printing and typesetting" />
+            <div class="productsTitleFlex">
+              <div class="saveStoryWrap">
+                <p class="productsPrice">$299</p>
+                <p class="productsSave">SAVE $500</p>
+              </div>
+              <p class="productsTitle">CHAIR</p>
+            </div></a
+          >
+        </div>
+        <div class="rounded homepage-product-card animate-product">
+          <a
+            class=""
+            href="/test-page-10"
+            title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            ><img
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+              class="product-size"
+              width="900"
+              height="550"
+              src="https://picsum.photos/900/550"
+              srcset="
+                https://picsum.photos/900/550 400w,
+                https://picsum.photos/900/550 800w
+              "
+              alt="Lorem Ipsum is simply dummy text of the printing and typesetting" />
+            <div class="productsTitleFlex">
+              <div class="saveStoryWrap">
+                <p class="productsPrice">$399</p>
+                <p class="productsSave">SAVE $501</p>
+              </div>
+              <p class="productsTitle">TABLE</p>
+            </div></a
+          >
+        </div>
+        <div class="rounded homepage-product-card animate-product">
+          <a
+            class=""
+            href="/test-page-11"
+            title="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            aria-label="Lorem Ipsum is simply dummy text of the printing and typesetting"
+            ><img
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+              class="product-size"
+              width="900"
+              height="550"
+              src="https://picsum.photos/900/550"
+              srcset="
+                https://picsum.photos/900/550 400w,
+                https://picsum.photos/900/550 800w
+              "
+              alt="Lorem Ipsum is simply dummy text of the printing and typesetting" />
+            <div class="productsTitleFlex">
+              <div class="saveStoryWrap">
+                <p class="productsPrice">$499</p>
+                <p class="productsSave">SAVE $502</p>
+              </div>
+              <p class="productsTitle">MATTRESS</p>
+            </div></a
+          >
+        </div>
       </div>
     </div>
   </div>
