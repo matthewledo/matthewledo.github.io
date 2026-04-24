@@ -61,7 +61,7 @@ const projects = [
 
   <Layout title="Matthew Ledo | Portfolio Preview">
       <Header></Header>
-  <div class="bg-white text-slate-900 font-sans antialiased min-h-screen pt-0 pb-24">
+  <div class="bg-white text-slate-900 font-sans antialiased min-h-screen pt-0 pb-0">
     
     <header class="max-w-4xl mx-auto w-full px-0 text-center mb-0">
       <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">Digital Experience Developer</h1>
@@ -86,7 +86,7 @@ const projects = [
           <div class="w-full shrink-0 snap-center flex flex-col lg:flex-row items-center gap-12 px-0 py-0">
             
             <div class="w-full lg:w-3/5 flex justify-center">
-              <img src={project.image} alt={project.title} class="w-full max-w-3xl object-cover" style="max-height: 575px;" />
+              <img src={project.image} alt={project.title} class="w-full max-w-3xl object-cover" style="height: clamp(200px, 65vw, 575px);" />
             </div>
 
             <div class="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left">
