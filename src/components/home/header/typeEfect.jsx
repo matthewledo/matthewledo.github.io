@@ -25,7 +25,7 @@ const TypeEfect = () => {
   }, [subIndex, index, reverse]);
 
   return (
-    <div className="font-mono text-xl md:text-3xl font-semibold">
+    <div className="font-mono text-xl md:text-3xl font-semibold min-h-14">
       <span className="text-slate-600">Specialist in </span>
       <span className="text-emerald-600">
         {words[index].substring(0, subIndex)}

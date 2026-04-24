@@ -83,19 +83,29 @@ const projects = [
       <div id="slider-container" class="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory w-full">
         
         {projects.map((project, index) => (
-          <div class="w-full shrink-0 snap-center flex flex-col lg:flex-row items-center gap-12 px-0 py-0">
+          <div class="w-full shrink-0 snap-center flex flex-col lg:flex-row items-center gap-10 px-0 py-0">
             
             <div class="w-full lg:w-3/5 flex justify-center">
               <img src={project.image} alt={project.title} class="w-full max-w-3xl object-cover" style="height: clamp(200px, 65vw, 575px);" />
             </div>
 
+              <button 
+                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-2 px-6 rounded-full transition-colors items-center justify-center gap-2 shadow-xl hover:shadow-7xl ease-in cursor-pointer flex lg:hidden"
+                data-video={project.video} data-aspectRatio={project.aspectRatio}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                View Live Interaction
+              </button>
+
             <div class="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left">
               <div class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-2">Project 0{index + 1}</div>
-              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{project.title}</h3>
+              <h3 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">{project.title}</h3>
               <p class="text-slate-600 text-lg mb-8 leading-relaxed">{project.description}</p>
               
               <button 
-                class="video-btn bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl cursor-pointer"
+                class="video-btn bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors items-center justify-center gap-3 shadow-xl hover:shadow-2xl cursor-pointer hidden lg:flex"
                 data-video={project.video} data-aspectRatio={project.aspectRatio}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
