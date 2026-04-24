@@ -11,48 +11,48 @@ import Banner from "../components/commons/banners/banner.astro";
 const projects = [
   {
     id: "mlse",
-    title: "MLSE Partnership Giveaway",
-    description: "High-traffic giveaway landing page featuring complex data-entry forms, clear CTAs, and strict brand guidelines. Fully responsive and optimized for mobile users on the go.",
+    title: "Toronto Maple Leafs Partnership Giveaway",
+    description: "Built a conversion-focused landing page that guides users from attention-grabbing visuals to a frictionless entry form, with strategic CTA placement and simplified user flow to increase submissions.",
     tech: "HTML, CSS, JavaScript",
     image: "/landing-page-assets/MLSE_Partnership_Giveaway_final.png",
-    video: "/landing-page-assets/MLSE Giveaway Walkthrough.mp4",
-    aspectRatio: "1892/900"
+    video: "/landing-page-assets/MLSE Giveaway Walkthrough_1080_compressed.mp4",
+    aspectRatio: "1920/1080"
   },
   {
     id: "customer-appreciation",
-    title: "Customer Appreciation Event",
-    description: "An event-driven landing page prioritizing high visual impact and clear navigation to drive foot traffic and sweepstakes entries.",
+    title: "Customer Appreciation Event Launch",
+    description: "Developed a high-impact promotional landing page for a major annual sales event, combining bold visuals, clear CTA pathways, and engaging elements like animated confetti to capture attention and drive user interaction.",
     tech: "HTML, CSS, Custom Graphics",
     image: "/landing-page-assets/Customer Appreciation Event_Final.png",
-    video: "/landing-page-assets/CAE Walkthrough.mp4",
+    video: "/landing-page-assets/CAE Walkthrough_1080_compressed.mp4",
     aspectRatio: "1920/1080" 
   },
   {
     id: "in-full-bloom",
-    title: "In Full Bloom Collection",
-    description: "A clean, sophisticated digital experience showcasing product collections with integrated multimedia and a soft, modern aesthetic.",
+    title: "Seasonal Product Collection Launch",
+    description: "Developed a visually driven landing page for a seasonal collection launch, using strong imagery, clear content hierarchy, and curated product sections to guide users through discovery and drive engagement",
     tech: "Responsive Layouts, Video Integration",
     image: "/landing-page-assets/In_Full_Bloom_final.png",
-    video: "/landing-page-assets/Full Bloom Walkthrough.mp4",
-    aspectRatio: "1912/904" 
+    video: "/landing-page-assets/Full Bloom Walkthrough_1080_compressed.mp4",
+    aspectRatio: "1920/1080" 
   },
   {
     id: "samsung-vision",
-    title: "Samsung Vision AI Launch",
-    description: "Dark-mode, tech-forward landing page designed to capture pre-orders and VIP sign-ups with a sleek, premium feel.",
+    title: "Samsung Vision AI Sign-Up Campaign",
+    description: "Built a visually polished, co-branded landing page focused on early access sign-ups, featuring a modern gradient-driven design, premium aesthetic, and a clear value proposition to drive user engagement and conversions.",
     tech: "CSS Gradients, Form Handling",
     image: "/landing-page-assets/Samsung_Vision_AI_Final.png",
-    video: "/landing-page-assets/Samsung Contest Walkthrough.mp4",
-    aspectRatio: "1892/898" 
+    video: "/landing-page-assets/Samsung Contest Walkthrough_1080_compressed.mp4",
+    aspectRatio: "1920/1080" 
   },
   {
     id: "thats-comfortable",
-    title: "That's Comfortable Campaign",
-    description: "A highly visual, engaging page combining video content with strong brand messaging to educate and convert users.",
+    title: "Leon's Brand Campaign Landing Page",
+    description: "Designed and developed a content-rich landing page that organizes multiple service offerings into clear, digestible sections, guiding users through the brand story while maintaining a clean and accessible layout.",
     tech: "UI/UX Design, Web Optimization",
     image: "/landing-page-assets/That's Comfortable_Final.png",
-    video: "/landing-page-assets/That's Comfortable Walkthrough.mp4",
-    aspectRatio: "1892/908" 
+    video: "/landing-page-assets/That's Comfortable Walkthrough_1080_compressed.mp4",
+    aspectRatio: "1920/1080" 
   }
 ];
 
@@ -90,7 +90,7 @@ const projects = [
             </div>
 
               <button 
-                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-2 px-6 rounded-full transition-colors items-center justify-center gap-2 shadow-xl hover:shadow-7xl ease-in cursor-pointer flex lg:hidden"
+                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-2 px-6 rounded-full transition-colors items-center justify-center gap-2 shadow-xl ease-in cursor-pointer flex lg:hidden"
                 data-video={project.video} data-aspectRatio={project.aspectRatio}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -105,7 +105,7 @@ const projects = [
               <p class="text-slate-600 text-lg mb-8 leading-relaxed">{project.description}</p>
               
               <button 
-                class="video-btn bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors items-center justify-center gap-3 shadow-xl hover:shadow-2xl cursor-pointer hidden lg:flex"
+                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors items-center justify-center gap-3 shadow-xl ease-in cursor-pointer hidden lg:flex"
                 data-video={project.video} data-aspectRatio={project.aspectRatio}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
