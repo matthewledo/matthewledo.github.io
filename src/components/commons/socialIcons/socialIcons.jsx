@@ -9,7 +9,7 @@ const SocialIcons = () => {
       <a href="https://www.linkedin.com/in/matthew-ledo/" target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Linkedin">
         <FaLinkedinIn className={iconClass} />
       </a>
-      <a href="https://github.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Github">
+      <a href="https://github.com/matthewledo/matthewledo.github.io" target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Github">
         <FaGithub className={iconClass} />
       </a>
       {/* <a href="https://x.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Twitter">
