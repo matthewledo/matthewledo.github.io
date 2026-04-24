@@ -15,7 +15,8 @@ const projects = [
     description: "High-traffic giveaway landing page featuring complex data-entry forms, clear CTAs, and strict brand guidelines. Fully responsive and optimized for mobile users on the go.",
     tech: "HTML, CSS, JavaScript",
     image: "/landing-page-assets/MLSE_Partnership_Giveaway_final.png",
-    video: "/mlse-video.mp4" // Update with your actual video filename
+    video: "/landing-page-assets/MLSE Giveaway Walkthrough.mp4",
+    aspectRatio: "1892/900"
   },
   {
     id: "customer-appreciation",
@@ -23,7 +24,8 @@ const projects = [
     description: "An event-driven landing page prioritizing high visual impact and clear navigation to drive foot traffic and sweepstakes entries.",
     tech: "HTML, CSS, Custom Graphics",
     image: "/landing-page-assets/Customer Appreciation Event_Final.png",
-    video: "/landing-page-assets/CAE Walkthrough.mp4" 
+    video: "/landing-page-assets/CAE Walkthrough.mp4",
+    aspectRatio: "1920/1080" 
   },
   {
     id: "in-full-bloom",
@@ -31,7 +33,8 @@ const projects = [
     description: "A clean, sophisticated digital experience showcasing product collections with integrated multimedia and a soft, modern aesthetic.",
     tech: "Responsive Layouts, Video Integration",
     image: "/landing-page-assets/In_Full_Bloom_final.png",
-    video: "/bloom-video.mp4" 
+    video: "/landing-page-assets/Full Bloom Walkthrough.mp4",
+    aspectRatio: "1912/904" 
   },
   {
     id: "samsung-vision",
@@ -39,7 +42,8 @@ const projects = [
     description: "Dark-mode, tech-forward landing page designed to capture pre-orders and VIP sign-ups with a sleek, premium feel.",
     tech: "CSS Gradients, Form Handling",
     image: "/landing-page-assets/Samsung_Vision_AI_Final.png",
-    video: "/samsung-video.mp4" 
+    video: "/landing-page-assets/Samsung Contest Walkthrough.mp4",
+    aspectRatio: "1892/898" 
   },
   {
     id: "thats-comfortable",
@@ -47,7 +51,8 @@ const projects = [
     description: "A highly visual, engaging page combining video content with strong brand messaging to educate and convert users.",
     tech: "UI/UX Design, Web Optimization",
     image: "/landing-page-assets/That's Comfortable_Final.png",
-    video: "/comfortable-video.mp4" 
+    video: "/landing-page-assets/That's Comfortable Walkthrough.mp4",
+    aspectRatio: "1892/908" 
   }
 ];
 
@@ -91,7 +96,7 @@ const projects = [
               
               <button 
                 class="video-btn bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl cursor-pointer"
-                data-video={project.video}
+                data-video={project.video} data-aspectRatio={project.aspectRatio}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -118,15 +123,15 @@ const projects = [
     </div>
   </div>
 
-  <dialog id="video-modal" class="bg-transparent backdrop:bg-slate-900/90 backdrop:backdrop-blur-md p-0 rounded-2xl m-auto shadow-2xl w-[95vw] max-w-5xl">
-    <div class="bg-black overflow-hidden rounded-2xl relative border border-slate-700">
-      <button id="close-modal" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 z-10 transition-colors">
+  <dialog id="video-modal" class="bg-transparent backdrop:bg-black/60 p-0 rounded-2xl m-auto shadow-2xl w-[95vw] max-w-7xl border-0" style="filter: drop-shadow(2px 4px 8px black)">
+    <div class="bg-slate-900 overflow-hidden rounded-2xl relative w-full" >
+      <button id="close-modal" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 z-10 transition-colors cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       
-      <div class="w-full aspect-video bg-black flex items-center justify-center">
+      <div class="w-full bg-black flex items-center justify-center">
         <video id="modal-video" controls class="w-full h-full object-contain">
           <source src="" type="video/mp4">
         </video>
@@ -144,6 +149,8 @@ const projects = [
     openButtons.forEach(button => {
       button.addEventListener('click', () => {
         const videoSrc = button.getAttribute('data-video');
+        const videoAspectRatio = button.getAttribute('data-aspectRatio');
+        videoPlayer.style.aspectRatio = videoAspectRatio;
         videoPlayer.src = videoSrc;
         modal.showModal();
         videoPlayer.play();
