@@ -176,11 +176,11 @@ videoSrc: "/public/video-projects/HTML Generator/HTML Generator Recording_Shorte
     videoSrc: "", 
     sourceImages: [
       // Suggestion: Show the variety of the campaigns to prove reusability!
-      { src: "/img-projects/Giveaways/maple-leafs-ui.webp", caption: "The Toronto Maple Leafs 'Bring Home the Passion' campaign UI." },
-      { src: "/img-projects/Giveaways/samsung-ui.webp", caption: "The template adapted for the Samsung promotional partnership." },
-      { src: "/img-projects/Giveaways/exp-realty-ui.webp", caption: "The B2B adaptation for the EXP Realty campaign." },
-      { src: "/img-projects/Giveaways/form-validation-code.webp", caption: "Custom Regex validation and localized error handling." },
-      { src: "/img-projects/Giveaways/geofence-code.webp", caption: "The geofencing logic used to restrict ineligible regional entries." }
+      { src: "/src/img-projects/Giveaways/maple-leafs-ui.webp", caption: "The Toronto Maple Leafs 'Bring Home the Passion' campaign UI." },
+      { src: "/src/img-projects/Giveaways/samsung-ui.webp", caption: "The template adapted for the Samsung promotional partnership." },
+      { src: "/src/img-projects/Giveaways/exp-realty-ui.webp", caption: "The B2B adaptation for the EXP Realty campaign." },
+      { src: "/src/img-projects/Giveaways/form-validation-code.webp", caption: "Custom Regex validation and localized error handling." },
+      { src: "/src/img-projects/Giveaways/geofence-code.webp", caption: "The geofencing logic used to restrict ineligible regional entries." }
     ]
   },
   {

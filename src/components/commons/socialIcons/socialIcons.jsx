@@ -12,12 +12,12 @@ const SocialIcons = () => {
       <a href="https://github.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Github">
         <FaGithub className={iconClass} />
       </a>
-      <a href="https://x.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Twitter">
+      {/* <a href="https://x.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Twitter">
         <FaXTwitter className={iconClass} />
       </a>
       <a href="https://www.instagram.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Instagram">
         <FaInstagram className={iconClass} />
-      </a>
+      </a> */}
     </div>
   );
 };

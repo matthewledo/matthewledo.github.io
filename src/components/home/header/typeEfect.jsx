@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const TypeEfect = () => {
-  const words = ['Ecommerce Growth', 'Technical SEO', 'Performance Web'];
+  const words = ['Frontend Development', 'Search Engine Optimization', 'Ecommerce Growth'];
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);

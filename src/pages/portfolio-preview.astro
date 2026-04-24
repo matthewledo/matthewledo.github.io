@@ -1,0 +1,217 @@
+---
+// src/pages/portfolio-preview.astro
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/home/header/header.astro";
+import Slider from "../components/home/header/slider.astro";
+import AboutHome from "../components/home/aboutHome/aboutHome.astro";
+import HomeProject from "../components/home/homeProject/homeProject.astro";
+import FAQS from "../components/home/faqs/faqs.jsx";
+import Banner from "../components/commons/banners/banner.astro";
+
+const projects = [
+  {
+    id: "mlse",
+    title: "MLSE Partnership Giveaway",
+    description: "High-traffic giveaway landing page featuring complex data-entry forms, clear CTAs, and strict brand guidelines. Fully responsive and optimized for mobile users on the go.",
+    tech: "HTML, CSS, JavaScript",
+    image: "/landing-page-assets/MLSE_Partnership_Giveaway_final.png",
+    video: "/mlse-video.mp4" // Update with your actual video filename
+  },
+  {
+    id: "customer-appreciation",
+    title: "Customer Appreciation Event",
+    description: "An event-driven landing page prioritizing high visual impact and clear navigation to drive foot traffic and sweepstakes entries.",
+    tech: "HTML, CSS, Custom Graphics",
+    image: "/landing-page-assets/Customer Appreciation Event_Final.png",
+    video: "/landing-page-assets/CAE Walkthrough.mp4" 
+  },
+  {
+    id: "in-full-bloom",
+    title: "In Full Bloom Collection",
+    description: "A clean, sophisticated digital experience showcasing product collections with integrated multimedia and a soft, modern aesthetic.",
+    tech: "Responsive Layouts, Video Integration",
+    image: "/landing-page-assets/In_Full_Bloom_final.png",
+    video: "/bloom-video.mp4" 
+  },
+  {
+    id: "samsung-vision",
+    title: "Samsung Vision AI Launch",
+    description: "Dark-mode, tech-forward landing page designed to capture pre-orders and VIP sign-ups with a sleek, premium feel.",
+    tech: "CSS Gradients, Form Handling",
+    image: "/landing-page-assets/Samsung_Vision_AI_Final.png",
+    video: "/samsung-video.mp4" 
+  },
+  {
+    id: "thats-comfortable",
+    title: "That's Comfortable Campaign",
+    description: "A highly visual, engaging page combining video content with strong brand messaging to educate and convert users.",
+    tech: "UI/UX Design, Web Optimization",
+    image: "/landing-page-assets/That's Comfortable_Final.png",
+    video: "/comfortable-video.mp4" 
+  }
+];
+
+---
+
+
+  <Layout title="Matthew Ledo | Portfolio Preview">
+      <Header></Header>
+  <div class="bg-white text-slate-900 font-sans antialiased min-h-screen pt-0 pb-24">
+    
+    <header class="max-w-4xl mx-auto w-full px-0 text-center mb-0">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">Digital Experience Developer</h1>
+      <p class="text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto">
+        I specialize in building high-conversion, beautifully designed digital experiences. Use the arrows to explore my recent interactive web projects.
+      </p>
+    </header>
+
+    <div class="relative w-full max-w-7xl mx-auto px-0 md:px-0 group">
+      
+      <button id="prev-slide" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-slate-200 hover:bg-slate-50 text-slate-800 p-4 rounded-full shadow-lg transition-all hidden md:block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+      </button>
+      
+      <button id="next-slide" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-slate-200 hover:bg-slate-50 text-slate-800 p-4 rounded-full shadow-lg transition-all hidden md:block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+      </button>
+
+      <div id="slider-container" class="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory w-full">
+        
+        {projects.map((project, index) => (
+          <div class="w-full shrink-0 snap-center flex flex-col lg:flex-row items-center gap-12 px-0 py-0">
+            
+            <div class="w-full lg:w-3/5 flex justify-center">
+              <img src={project.image} alt={project.title} class="w-full max-w-3xl object-cover" style="max-height: 575px;" />
+            </div>
+
+            <div class="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-2">Project 0{index + 1}</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{project.title}</h3>
+              <p class="text-slate-600 text-lg mb-8 leading-relaxed">{project.description}</p>
+              
+              <button 
+                class="video-btn bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl cursor-pointer"
+                data-video={project.video}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                View Live Interaction
+              </button>
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+
+      <div id="slider-dots" class="flex justify-center items-center gap-3 mt-0">
+        {projects.map((_, index) => (
+          <button 
+            class="dot w-3 h-3 rounded-full bg-slate-200 transition-all duration-300"
+            data-index={index}
+            aria-label={`Go to slide ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+      
+    </div>
+  </div>
+
+  <dialog id="video-modal" class="bg-transparent backdrop:bg-slate-900/90 backdrop:backdrop-blur-md p-0 rounded-2xl m-auto shadow-2xl w-[95vw] max-w-5xl">
+    <div class="bg-black overflow-hidden rounded-2xl relative border border-slate-700">
+      <button id="close-modal" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 z-10 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div class="w-full aspect-video bg-black flex items-center justify-center">
+        <video id="modal-video" controls class="w-full h-full object-contain">
+          <source src="" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </dialog>
+
+ <script is:inline>
+    // --- Modal Logic ---
+    const modal = document.getElementById('video-modal');
+    const videoPlayer = document.getElementById('modal-video');
+    const closeBtn = document.getElementById('close-modal');
+    const openButtons = document.querySelectorAll('.video-btn');
+
+    openButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const videoSrc = button.getAttribute('data-video');
+        videoPlayer.src = videoSrc;
+        modal.showModal();
+        videoPlayer.play();
+      });
+    });
+
+    const closeModal = () => {
+      videoPlayer.pause();
+      videoPlayer.src = ''; 
+      modal.close();
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      const dialogDimensions = modal.getBoundingClientRect();
+      if (
+        e.clientX < dialogDimensions.left || e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top || e.clientY > dialogDimensions.bottom
+      ) {
+        closeModal();
+      }
+    });
+
+    // --- Slider & Dots Logic ---
+    const sliderContainer = document.getElementById('slider-container');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    // Update dots based on scroll position
+    const updateDots = () => {
+      const slideIndex = Math.round(sliderContainer.scrollLeft / sliderContainer.clientWidth);
+      dots.forEach((dot, index) => {
+        if (index === slideIndex) {
+          dot.classList.remove('bg-slate-200', 'scale-100', 'cursor-pointer');
+          dot.classList.add('bg-slate-800', 'scale-125'); // Active dot is darker and slightly larger
+        } else {
+          dot.classList.add('bg-slate-200', 'scale-100', 'cursor-pointer');
+          dot.classList.remove('bg-slate-800', 'scale-125');
+        }
+      });
+    };
+
+    // Listen for scrolling to update dots dynamically
+    sliderContainer.addEventListener('scroll', updateDots);
+    // Set initial active dot
+    updateDots();
+
+    // Click arrows to slide
+    nextBtn.addEventListener('click', () => {
+      const slideWidth = sliderContainer.clientWidth;
+      sliderContainer.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const slideWidth = sliderContainer.clientWidth;
+      sliderContainer.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    // Click a dot to jump to that slide
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const slideWidth = sliderContainer.clientWidth;
+        sliderContainer.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <Banner></Banner>
+</Layout>
