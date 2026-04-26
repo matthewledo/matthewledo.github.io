@@ -12,155 +12,362 @@ const projects = [
   {
     id: "mlse",
     title: "Toronto Maple Leafs Partnership Giveaway",
-    description: "Built a conversion-focused landing page that guides users from attention-grabbing visuals to a frictionless entry form, with strategic CTA placement and simplified user flow to increase submissions.",
+    description:
+      "Built a conversion-focused landing page that guides users from attention-grabbing visuals to a frictionless entry form, with strategic CTA placement and simplified user flow to increase submissions.",
     tech: "HTML, CSS, JavaScript",
     image: "/landing-page-assets/MLSE_Partnership_Giveaway_final.png",
     video: "/landing-page-assets/MLSE Giveaway Walkthrough_1080-compressed.mp4",
-    aspectRatio: "1920/1080"
+    aspectRatio: "1920/1080",
   },
   {
     id: "customer-appreciation",
     title: "Customer Appreciation Event Launch",
-    description: "Developed a high-impact promotional landing page for a major annual sales event, combining bold visuals, clear CTA pathways, and engaging elements like animated confetti to capture attention and drive user interaction.",
+    description:
+      "Developed a high-impact promotional landing page for a major annual sales event, combining bold visuals, clear CTA pathways, and engaging elements like animated confetti to capture attention and drive user interaction.",
     tech: "HTML, CSS, Custom Graphics",
     image: "/landing-page-assets/Customer Appreciation Event_Final.png",
     video: "/landing-page-assets/CAE Walkthrough_1080-compressed.mp4",
-    aspectRatio: "1920/1080" 
+    aspectRatio: "1920/1080",
   },
   {
     id: "in-full-bloom",
     title: "Seasonal Product Collection Launch",
-    description: "Developed a visually driven landing page for a seasonal collection launch, using strong imagery, clear content hierarchy, and curated product sections to guide users through discovery and drive engagement",
+    description:
+      "Developed a visually driven landing page for a seasonal collection launch, using strong imagery, clear content hierarchy, and curated product sections to guide users through discovery and drive engagement",
     tech: "Responsive Layouts, Video Integration",
     image: "/landing-page-assets/In_Full_Bloom_final.png",
     video: "/landing-page-assets/Full Bloom Walkthrough_1080-compressed.mp4",
-    aspectRatio: "1920/1080" 
+    aspectRatio: "1920/1080",
   },
   {
     id: "samsung-vision",
     title: "Samsung Vision AI Sign-Up Campaign",
-    description: "Built a visually polished, co-branded landing page focused on early access sign-ups, featuring a modern gradient-driven design, premium aesthetic, and a clear value proposition to drive user engagement and conversions.",
+    description:
+      "Built a visually polished, co-branded landing page focused on early access sign-ups, featuring a modern gradient-driven design, premium aesthetic, and a clear value proposition to drive user engagement and conversions.",
     tech: "CSS Gradients, Form Handling",
     image: "/landing-page-assets/Samsung_Vision_AI_Final.png",
     video: "/landing-page-assets/Samsung Contest Walkthrough_1080-compressed.mp4",
-    aspectRatio: "1920/1080" 
+    aspectRatio: "1920/1080",
   },
   {
     id: "thats-comfortable",
     title: "Leon's Brand Campaign Landing Page",
-    description: "Designed and developed a content-rich landing page that organizes multiple service offerings into clear, digestible sections, guiding users through the brand story while maintaining a clean and accessible layout.",
+    description:
+      "Designed and developed a content-rich landing page that organizes multiple service offerings into clear, digestible sections, guiding users through the brand story while maintaining a clean and accessible layout.",
     tech: "UI/UX Design, Web Optimization",
     image: "/landing-page-assets/That's Comfortable_Final.png",
     video: "/landing-page-assets/Thats Comfortable Walkthrough_1080-compressed.mp4",
-    aspectRatio: "1920/1080" 
-  }
+    aspectRatio: "1920/1080",
+  },
 ];
-
 ---
 
-
-  <Layout title="Matthew Ledo | Portfolio Preview">
-      <Header></Header>
-  <div class="bg-white text-slate-900 font-sans antialiased min-h-screen pt-0 pb-0">
-    
-    <header class="max-w-4xl mx-auto w-full px-0 text-center mb-0">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">Digital Experience Developer</h1>
-      <p class="text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        I specialize in building high-conversion, beautifully designed digital experiences. Use the arrows to explore my recent interactive web projects.
+<Layout title="Matthew Ledo | Portfolio Preview">
+  <Header />
+  <div class="min-h-screen
+      pt-0 pb-0
+      text-slate-900 font-sans
+      bg-white
+      antialiased">
+    <header class="max-w-4xl w-full
+        mx-auto px-0 mb-16 md:mb-8
+        text-center">
+     <h2
+        class="mb-4
+          text-4xl font-extrabold tracking-tight text-slate-900
+          md:text-5xl">
+        Step Into the Gallery
+      </h2>
+      <p
+        class="max-w-2xl
+          mx-auto
+          text-slate-500 text-lg leading-relaxed">
+        A curated collection of my most impactful digital experiences. Take your time, explore the details, and interact with the live builds below.
       </p>
     </header>
 
-    <div class="relative w-full max-w-7xl mx-auto px-0 md:px-0 group">
-      
-      <button id="prev-slide" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-slate-200 hover:bg-slate-50 text-slate-800 p-4 rounded-full shadow-lg transition-all hidden md:block cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-      </button>
-      
-      <button id="next-slide" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-slate-200 hover:bg-slate-50 text-slate-800 p-4 rounded-full shadow-lg transition-all hidden md:block cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
-      </button>
+    <div class="w-full max-w-7xl
+        mx-auto px-0
+        relative group
+        md:px-0">
+      <div id="slider-container" class="flex flex-nowrap overflow-x-auto
+            w-full
+            scroll-smooth scrollbar-hide snap-x snap-mandatory">
+        {
+          projects.map((project, index) => (
+            <div
+              class="
+                flex flex-col
+                w-full
+                px-0 py-0
+                shrink-0 snap-center items-center gap-10
+                md:flex-row
+              ">
+              <div class="flex flex-col w-full text-center md:hidden">
+                <div class="mb-2 text-sm font-bold tracking-widest text-slate-400 uppercase">Project 0{index + 1}</div>
+                <h3 class="mb-0 text-3xl font-bold text-slate-900">{project.title}</h3>
+              </div>
 
-      <!-- <div id="slider-container" class="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory w-full"> -->
-       <div id="slider-container" class="flex flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory w-full pb-8 px-4 md:px-0">
-        
-        {projects.map((project, index) => (
-          <div class="w-full shrink-0 snap-center flex flex-col lg:flex-row items-center gap-10 px-0 py-0">
-            
-            <div class="w-full lg:w-3/5 flex justify-center">
-              <img src={project.image} alt={project.title} draggable="false" class="select-none w-full max-w-3xl object-cover" style="height: clamp(200px, 65vw, 575px);" />
-            </div>
+              <div
+                class="
+                  flex
+                  w-full
+                  justify-center
+                ">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  draggable="false"
+                  class="
+                      object-cover
+                      w-full max-w-3xl
+                      select-none
+                    "
+                  style="height: clamp(200px, 60vw, 575px);"
+                />
+              </div>
 
-              <button 
-                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-2 px-6 rounded-full transition-colors items-center justify-center gap-2 shadow-xl ease-in cursor-pointer flex lg:hidden"
-                data-video={project.video} data-aspectRatio={project.aspectRatio}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <div class="flex justify-center items-center gap-3 md:hidden -mt-4 mb-0">
+                {projects.map((_, i) => (
+                  <button
+                    class="
+                      w-2.5 h-2.5
+                      bg-slate-200
+                      rounded-full
+                      transition-all
+                      dot duration-300
+                    "
+                    data-index={i}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                class="
+                  flex
+                  py-2 px-6
+                  text-slate-900 font-bold text-lg
+                  bg-emerald-500
+                  rounded-full
+                  transition-colors shadow-xl cursor-pointer
+                  video-btn hover:bg-emerald-600 items-center justify-center gap-2 ease-in
+                  md:hidden
+                "
+                data-video={project.video}
+                data-aspectRatio={project.aspectRatio}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="
+                      h-5 w-5
+                    "
+                  viewBox="0 0 20 20"
+                  fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                 </svg>
                 View Live Interaction
               </button>
 
-            <div class="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left select-none">
-              <div class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-2">Project 0{index + 1}</div>
-              <h3 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">{project.title}</h3>
-              <p class="text-slate-600 text-lg mb-8 leading-relaxed">{project.description}</p>
-              
-              <button 
-                class="video-btn bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-lg py-4 px-8 rounded-full transition-colors items-center justify-center gap-3 shadow-xl ease-in cursor-pointer hidden lg:flex"
-                data-video={project.video} data-aspectRatio={project.aspectRatio}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-                View Live Interaction
-              </button>
+              <div
+                class="
+                  flex flex-col
+                  w-full
+                  text-center
+                  select-none
+                  items-center
+                  md:w-3/5 md:text-left md:items-start
+                ">
+                <div
+                  class="
+                    hidden md:block
+                    mb-2
+                    text-sm font-bold tracking-widest text-slate-400
+                    uppercase
+                  ">
+                  Project 0{index + 1}
+                </div>
+
+                <h3
+                  class="
+                    hidden md:block
+                    mb-6
+                    text-3xl font-bold text-slate-900
+                    lg:text-4xl
+                  ">
+                  {project.title}
+                </h3>
+
+                <p
+                  class="
+                    mb-8
+                    text-slate-600 text-lg leading-relaxed
+                  ">
+                  {project.description}
+                </p>
+
+                <button
+                  class="
+                    hidden
+                    py-4 px-8
+                    text-slate-900 font-bold text-lg
+                    bg-emerald-500
+                    rounded-full
+                    transition-colors shadow-xl cursor-pointer
+                    video-btn hover:bg-emerald-600 items-center justify-center gap-3 ease-in
+                    md:flex
+                  "
+                  data-video={project.video}
+                  data-aspectRatio={project.aspectRatio}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="
+                        h-8 w-8
+                      "
+                    viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                  </svg>
+                  View Live Interaction
+                </button>
+              </div>
             </div>
-
-          </div>
-        ))}
-
+          ))
+        }
       </div>
+      <div class="hidden md:flex
+          w-full max-w-sm
+          mx-auto mt-8 mb-12 px-6
+          items-center justify-center
+          md:justify-between">
+        <button
+          id="prev-slide"
+          class="hidden
+              p-3
+              text-slate-800
+              bg-white
+              border border-slate-200 rounded-full
+              shadow-sm transition-all
+              hover:bg-slate-50 focus:outline-none hover:-translate-x-1
+              md:flex cursor-pointer"
+          aria-label="Previous project">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"
+            ><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path></svg
+          >
+        </button>
 
-      <div id="slider-dots" class="flex justify-center items-center gap-3 mt-0">
+        <div id="slider-dots" class="flex
+              justify-center items-center gap-3">
+          {
+            projects.map((_, index) => (
+              <button
+                class="
+                  w-2.5 h-2.5
+                  bg-slate-200
+                  rounded-full
+                  transition-all
+                  dot duration-300
+                "
+                data-index={index}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))
+          }
+        </div>
+
+        <button
+          id="next-slide"
+          class="hidden
+              p-3
+              text-slate-800
+              bg-white
+              border border-slate-200 rounded-full
+              shadow-sm transition-all
+              hover:bg-slate-50 focus:outline-none hover:translate-x-1
+              md:flex cursor-pointer"
+          aria-label="Next project">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"
+            ><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
+          >
+        </button>
+      </div>
+      <!-- <div id="slider-dots"
+        class="
+          flex
+          mt-0
+          justify-center items-center gap-3
+        "
+      
+      >
         {projects.map((_, index) => (
-          <button 
-            class="dot w-3 h-3 rounded-full bg-slate-200 transition-all duration-300"
+          <button
+            class="
+              w-3 h-3
+              bg-slate-200
+              rounded-full
+              transition-all
+              dot duration-300
+            "
+          
+          
             data-index={index}
             aria-label={`Go to slide ${index + 1}`}
           ></button>
         ))}
-      </div>
-      
+      </div> -->
     </div>
   </div>
 
-  <dialog id="video-modal" class="bg-transparent backdrop:bg-black/60 p-0 rounded-2xl m-auto shadow-2xl w-[95vw] max-w-7xl border-0" style="filter: drop-shadow(2px 4px 8px black)">
-    <div class="bg-slate-900 overflow-hidden rounded-2xl relative w-full" >
-      <button id="close-modal" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 z-10 transition-colors cursor-pointer">
+  <dialog
+    id="video-modal"
+    class="w-[95vw] max-w-7xl
+        p-0 m-auto
+        bg-transparent
+        rounded-2xl border-0
+        shadow-2xl
+        backdrop:bg-black/60"
+    style="filter: drop-shadow(2px 4px 8px black)">
+    <div class="overflow-hidden
+        w-full
+        bg-slate-900
+        rounded-2xl
+        relative">
+      <button
+        id="close-modal"
+        class="z-10
+            p-2
+            text-white
+            bg-white/10
+            rounded-full
+            transition-colors cursor-pointer
+            absolute top-4 right-4 hover:bg-white/20">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
-      
-      <div class="w-full bg-black flex items-center justify-center">
-        <video id="modal-video" controls class="w-full h-full object-contain">
-          <source src="" type="video/mp4">
+
+      <div class="flex
+          w-full
+          bg-black
+          items-center justify-center">
+        <video id="modal-video" controls class="object-contain
+              w-full h-full">
+          <source src="" type="video/mp4" />
         </video>
       </div>
     </div>
   </dialog>
 
- <script is:inline>
+  <script is:inline>
     // --- Modal Logic ---
-    const modal = document.getElementById('video-modal');
-    const videoPlayer = document.getElementById('modal-video');
-    const closeBtn = document.getElementById('close-modal');
-    const openButtons = document.querySelectorAll('.video-btn');
+    const modal = document.getElementById("video-modal");
+    const videoPlayer = document.getElementById("modal-video");
+    const closeBtn = document.getElementById("close-modal");
+    const openButtons = document.querySelectorAll(".video-btn");
 
-    openButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const videoSrc = button.getAttribute('data-video');
-        const videoAspectRatio = button.getAttribute('data-aspectRatio');
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const videoSrc = button.getAttribute("data-video");
+        const videoAspectRatio = button.getAttribute("data-aspectRatio");
         videoPlayer.style.aspectRatio = videoAspectRatio;
         videoPlayer.src = videoSrc;
         modal.showModal();
@@ -170,79 +377,81 @@ const projects = [
 
     const closeModal = () => {
       videoPlayer.pause();
-      videoPlayer.src = ''; 
+      videoPlayer.src = "";
       modal.close();
     };
 
-    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener("click", closeModal);
 
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener("click", (e) => {
       const dialogDimensions = modal.getBoundingClientRect();
-      if (
-        e.clientX < dialogDimensions.left || e.clientX > dialogDimensions.right ||
-        e.clientY < dialogDimensions.top || e.clientY > dialogDimensions.bottom
-      ) {
+      if (e.clientX < dialogDimensions.left || e.clientX > dialogDimensions.right || e.clientY < dialogDimensions.top || e.clientY > dialogDimensions.bottom) {
         closeModal();
       }
     });
 
     // --- Slider & Dots Logic ---
-    const sliderContainer = document.getElementById('slider-container');
-    const prevBtn = document.getElementById('prev-slide');
-    const nextBtn = document.getElementById('next-slide');
-    const dots = document.querySelectorAll('.dot');
+    const sliderContainer = document.getElementById("slider-container");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    const dots = document.querySelectorAll(".dot");
 
     // Update dots based on scroll position
     const updateDots = () => {
       const slideIndex = Math.round(sliderContainer.scrollLeft / sliderContainer.clientWidth);
-      dots.forEach((dot, index) => {
-        if (index === slideIndex) {
-          dot.classList.remove('bg-slate-200', 'scale-100', 'cursor-pointer');
-          dot.classList.add('bg-slate-800', 'scale-125'); // Active dot is darker and slightly larger
+      dots.forEach((dot) => {
+        // Read the true index from our HTML data attribute
+        const dotIndex = parseInt(dot.getAttribute("data-index"));
+
+        if (dotIndex === slideIndex) {
+          dot.classList.remove("bg-slate-200", "scale-100", "cursor-pointer");
+          dot.classList.add("bg-slate-800", "scale-125");
         } else {
-          dot.classList.add('bg-slate-200', 'scale-100', 'cursor-pointer');
-          dot.classList.remove('bg-slate-800', 'scale-125');
+          dot.classList.add("bg-slate-200", "scale-100", "cursor-pointer");
+          dot.classList.remove("bg-slate-800", "scale-125");
         }
       });
     };
 
     // Listen for scrolling to update dots dynamically
-    sliderContainer.addEventListener('scroll', updateDots);
+    sliderContainer.addEventListener("scroll", updateDots);
     // Set initial active dot
     updateDots();
 
     // Click arrows to slide
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener("click", () => {
       const slideWidth = sliderContainer.clientWidth;
-      sliderContainer.scrollBy({ left: slideWidth, behavior: 'smooth' });
+      sliderContainer.scrollBy({ left: slideWidth, behavior: "smooth" });
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener("click", () => {
       const slideWidth = sliderContainer.clientWidth;
-      sliderContainer.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+      sliderContainer.scrollBy({ left: -slideWidth, behavior: "smooth" });
     });
 
     // Click a dot to jump to that slide
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
         const slideWidth = sliderContainer.clientWidth;
-        sliderContainer.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+        // Read the true index from our HTML data attribute
+        const dotIndex = parseInt(dot.getAttribute("data-index"));
+        sliderContainer.scrollTo({ left: slideWidth * dotIndex, behavior: "smooth" });
       });
     });
   </script>
 
-  <Banner></Banner>
+  <Banner />
 </Layout>
 
 <style is:global>
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .scrollbar-hide::-webkit-scrollbar { 
-      display: none; 
-    }
-    
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .scrollbar-hide { 
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-  </style>
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
